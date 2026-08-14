@@ -115,14 +115,17 @@
     font-weight: 800; font-size: clamp(1.3rem, 2.4vw, 1.75rem); letter-spacing: -0.015em;
     color: var(--band-ink); margin: 0 0 34px;
   }
-  .logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 30px; align-items: center; justify-items: center; }
-  @media (max-width: 760px) { .logos { grid-template-columns: repeat(2, 1fr); gap: 34px 24px; } }
+  /* every mark renders at one uniform cap height, so the wall reads as a single row */
+  .logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 26px; align-items: center; justify-items: center; }
+  @media (max-width: 760px) { .logos { grid-template-columns: repeat(2, 1fr); gap: 34px 20px; } }
   .logos img {
-    max-height: 34px; max-width: 134px; width: auto; height: auto; object-fit: contain;
+    height: 28px; width: auto; max-width: 100%; object-fit: contain;
     filter: brightness(0) invert(1); opacity: 0.86; transition: opacity 0.2s ease;
   }
   .logos img:hover { opacity: 1; }
-  @media (max-width: 760px) { .logos img { max-height: 30px; max-width: 118px; } }
+  @media (max-width: 980px) { .logos img { height: 22px; } }
+  @media (max-width: 760px) { .logos img { height: 20px; } }
+  @media (max-width: 400px) { .logos img { height: 17px; } }
   .holdings .logo-caption { color: var(--band-muted); font-size: 13px; max-width: 660px; margin: 34px auto 0; }
 
   /* ---------- shared section chrome ---------- */
