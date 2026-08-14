@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A sleeve of your portfolio priced by funding rounds, not the daily tape. For verified accredited investors.">
+<meta property="og:title" content="Lumara · The Same Afternoon">
+<meta property="og:description" content="A sleeve of your portfolio priced by funding rounds, not the daily tape. For verified accredited investors.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101a38'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='38' font-weight='800' fill='%23ffffff' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<!-- META PIXEL: paste the Meta pixel base code here (same snippet on every page). The "Schedule" standard event fires ONLY on /confirm. -->
+<script src="https://embed.typeform.com/next/embed.js"></script>
+<title>Lumara · The Same Afternoon</title>
+<!-- ============================================================
+     LUMARA LP — CONCEPT 3 "THE SAME AFTERNOON" (correlation break-out, ?a=corr)
+     STYLE: "Saint" light system — white page, centered light hero, short sans
+     headlines, stat bar under hero, white shadow cards, navy track-record band.
+     TWO SWAP-INS ONLY:
+       1) VSL_EMBED_URL  — hosted video URL (angle script B "The Window")
+       2) TYPEFORM_URL   — booking/application form URL (opens on every CTA)
+     ============================================================ -->
+<style>
+  :root{
+    --paper:#ffffff; --pale:#f2f7fb; --ink:#16233f; --ink-soft:#33415f; --muted:#5b6884;
+    --line:#dfe8f0; --navy:#1c2751; --deep:#101a38; --blue:#2196c4; --blue-dark:#17789f;
+    --band-ink:#eaf3fb; --band-muted:#93a5c6; --shadow:0 6px 24px rgba(22,35,63,.08);
+    --radius:12px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink-soft);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+  .topbar { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
+  .wordmark { font-weight: 800; font-size: 17px; letter-spacing: 0.28em; color: var(--navy); }
+  .wordmark span { color: var(--blue); }
+  .topbar .trust { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  @media (max-width: 640px) { .topbar .trust { display: none; } }
+
+  .hero { background: var(--paper); text-align: center; padding: 72px 0 56px; }
+  .eyebrow {
+    display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--blue); font-weight: 700;
+  }
+  .hero h1 {
+    font-weight: 800; font-size: clamp(2.4rem, 5.5vw, 3.6rem); letter-spacing: -0.02em;
+    line-height: 1.1; color: var(--navy); margin: 18px auto 0; max-width: 820px; text-wrap: balance;
+  }
+  .hero .sub { color: var(--muted); font-size: 19px; max-width: 60ch; margin: 18px auto 0; }
+  .vsl {
+    margin: 36px auto 0; max-width: 720px; aspect-ratio: 16 / 9; background: var(--deep);
+    border-radius: var(--radius); box-shadow: var(--shadow); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px; cursor: pointer;
+  }
+  .vsl .play { width: 74px; height: 74px; border-radius: 50%; border: 2px solid var(--blue); display: flex; align-items: center; justify-content: center; }
+  .vsl .play svg { margin-left: 5px; }
+  .vsl .vsl-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--band-muted); }
+  .cta-btn {
+    display: inline-block; margin-top: 30px; background: var(--blue); color: var(--paper); text-decoration: none;
+    font-family: inherit; font-size: 16px; font-weight: 700; letter-spacing: 0.02em; padding: 14px 28px;
+    border: none; border-radius: 8px; cursor: pointer;
+    transition: background 0.15s ease; box-shadow: 0 6px 18px rgba(33,150,196,0.28);
+  }
+  .cta-btn:hover { background: var(--blue-dark); }
+  .cta-btn:focus-visible, .vsl:focus-visible, summary:focus-visible, .modal button:focus-visible {
+    outline: 3px solid var(--blue-dark); outline-offset: 2px;
+  }
+  .micro { font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+
+  .statbar { background: var(--pale); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 40px 0 36px; text-align: center; }
+  .statbar .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+  @media (max-width: 700px) { .statbar .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat .v { font-weight: 800; font-size: clamp(2rem, 4vw, 2.8rem); color: var(--navy); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .stat .k { font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+  .statbar .stat-caption { color: var(--muted); font-size: 14px; max-width: 60ch; margin: 24px auto 0; }
+
+  section { padding: 76px 0; }
+  section.pale { background: var(--pale); }
+  .sec-eyebrow { text-align: center; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); font-weight: 700; }
+  h2.sec-title {
+    text-align: center; font-weight: 800; letter-spacing: -0.01em;
+    font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--navy); margin: 10px auto 8px; max-width: 720px; text-wrap: balance;
+  }
+  .sec-sub { text-align: center; color: var(--muted); font-size: 15.5px; max-width: 62ch; margin: 0 auto 44px; }
+  .diamond { width: 9px; height: 9px; background: var(--blue); transform: rotate(45deg); display: inline-block; }
+
+  .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 640px) { .benefits { grid-template-columns: 1fr; } }
+  .benefit { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 26px 26px 24px; }
+  .benefit .diamond { margin-bottom: 14px; }
+  .benefit h3 { font-weight: 800; font-size: 18px; letter-spacing: -0.01em; margin: 0 0 8px; color: var(--navy); }
+  .benefit p { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
+  .center-cta { text-align: center; margin-top: 44px; }
+
+  .record { background: var(--deep); color: var(--band-ink); text-align: center; padding: 70px 0; }
+  .record .sec-eyebrow { color: var(--blue); }
+  .record h2 { font-weight: 800; letter-spacing: -0.01em; font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 10px 0 34px; color: var(--band-ink); }
+  .record .stats { display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(24px, 6vw, 72px); }
+  .record .stat .v { font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--band-ink); }
+  .record .stat .k { color: var(--band-muted); }
+  .record .stat-caption { color: var(--band-muted); font-size: 14px; max-width: 560px; margin: 26px auto 0; }
+  .logos { display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(18px, 4vw, 44px); margin-top: 38px; }
+  .logos span { font-weight: 800; font-size: clamp(18px, 2.6vw, 22px); color: var(--band-muted); letter-spacing: 0.04em; }
+  .record .logo-caption { color: var(--band-muted); font-size: 13px; max-width: 620px; margin: 18px auto 0; font-style: italic; }
+
+  .faq { max-width: 780px; margin: 0 auto; }
+  details { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 12px; }
+  summary {
+    list-style: none; cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 18px;
+    font-weight: 700; font-size: 17px; color: var(--navy); padding: 18px 22px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary .plus { color: var(--blue); font-size: 20px; font-weight: 300; flex-shrink: 0; }
+  details[open] summary .plus { transform: rotate(45deg); }
+  details .answer { padding: 0 22px 20px; font-size: 15px; color: var(--ink-soft); max-width: 62ch; }
+
+  .final { background: var(--navy); color: var(--band-ink); text-align: center; padding: 84px 0; }
+  .final h2 {
+    font-weight: 800; letter-spacing: -0.01em; color: var(--band-ink);
+    font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.25; max-width: 720px; margin: 0 auto; text-wrap: balance;
+  }
+  .final .micro { color: var(--band-muted); }
+
+  footer { background: var(--paper); border-top: 1px solid var(--line); padding: 36px 0 48px; }
+  footer p { font-size: 12px; color: var(--muted); max-width: 820px; margin: 0 auto 10px; text-align: center; }
+  footer .fm { font-weight: 800; letter-spacing: 0.28em; color: var(--navy); text-align: center; font-size: 13px; margin-bottom: 16px; }
+
+  .modal-back { position: fixed; inset: 0; background: rgba(16,26,56,0.72); display: none; align-items: center; justify-content: center; z-index: 50; padding: 24px; }
+  .modal-back.show { display: flex; }
+  .modal { background: var(--paper); color: var(--ink); max-width: 440px; padding: 34px 34px 30px; text-align: center; border-radius: var(--radius); border-top: 3px solid var(--blue); box-shadow: var(--shadow); }
+  .modal h4 { font-weight: 800; font-size: 20px; color: var(--navy); margin: 0 0 10px; }
+  .modal p { font-size: 13.5px; color: var(--muted); margin: 0 0 20px; }
+  .modal button { background: var(--navy); color: var(--paper); border: none; border-radius: 8px; padding: 10px 26px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="wordmark">LUMARA<span>&nbsp;LP</span></div>
+    <div class="trust">Verified Accredited Investors &middot; Rule 506(c)</div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">For Accredited Investors</span>
+    <h1>Priced by Rounds, Not the Tape</h1>
+    <p class="sub">Your public portfolio reprices on the same afternoon. A private sleeve is priced by financing rounds instead.</p>
+    <div class="vsl" id="vsl" role="button" tabindex="0" aria-label="Play video">
+      <div class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 4l14 8-14 8V4z" fill="#2196c4"/></svg></div>
+      <div class="vsl-label">Watch: The Window &middot; 4 min</div>
+    </div>
+    <button class="cta-btn" data-book>Open My Private Sleeve</button>
+    <div class="micro">Fifteen minutes. Accreditation verified, then the memo on current open names.</div>
+  </div>
+</div>
+
+<div class="statbar">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="v">25</div><div class="k">Years</div></div>
+      <div class="stat"><div class="v">$140M</div><div class="k">Managed</div></div>
+      <div class="stat"><div class="v">1,200</div><div class="k">Investors</div></div>
+      <div class="stat"><div class="v">92%</div><div class="k">Went Public</div></div>
+    </div>
+    <p class="stat-caption">92% of the companies we&rsquo;ve ever invested in have gone public.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">The Benefits</div>
+    <h2 class="sec-title reveal">Why a Private Sleeve</h2>
+    <p class="sec-sub reveal">Here&rsquo;s What You Hold With Lumara</p>
+    <div class="benefits">
+      <div class="benefit reveal"><span class="diamond"></span><h3>Rounds, Not the Tape</h3><p>A private position is valued when the company raises, not every afternoon at 4pm. To be clear: the value can still fall. What changes is that your whole net worth stops taking the same punch at the same time.</p></div>
+      <div class="benefit reveal"><span class="diamond"></span><h3>Exposure The Index Cannot Hold</h3><p>OpenAI, Anthropic, Stripe, Databricks. None of them are in any index you own, because none of them have listed. This is the part of the economy your portfolio currently cannot reach.</p></div>
+      <div class="benefit reveal"><span class="diamond"></span><h3>The Private Price</h3><p>You enter at the round&rsquo;s valuation, before the public market prices the company. The public investor&rsquo;s starting line is your finish line.</p></div>
+      <div class="benefit reveal"><span class="diamond"></span><h3>From $25,000</h3><p>The Allocation Split turns a seven-figure institutional block into $25k pieces. A real sleeve, built one position at a time, without rewriting your whole allocation.</p></div>
+      <div class="benefit reveal"><span class="diamond"></span><h3>Same Round, Same Terms</h3><p>Lumara&rsquo;s own capital is in every position first, and the terms carry through to your piece unchanged.</p></div>
+      <div class="benefit reveal"><span class="diamond"></span><h3>A 25-Year Screen</h3><p>An in-house research desk has picked private names for 25 years. 92% of the companies we have ever invested in have gone public, counting every position ever taken.</p></div>
+      <div class="benefit reveal"><span class="diamond"></span><h3>3 to 5 Names</h3><p>Most investors spread the sleeve across 3 to 5 companies. Diversification inside the sleeve, not just beside it.</p></div>
+      <div class="benefit reveal"><span class="diamond"></span><h3>A Defined Window</h3><p>Positions are typically positioned to list within 18 to 36 months of entry. Not a date, a window with a basis, and the updates come from the firm while you wait.</p></div>
+    </div>
+    <div class="center-cta reveal"><button class="cta-btn" data-book>Open My Private Sleeve</button></div>
+  </div>
+</section>
+
+<div class="record">
+  <div class="wrap">
+    <div class="sec-eyebrow">The Record</div>
+    <h2>The Track Record</h2>
+    <div class="stats">
+      <div class="stat"><div class="v">25</div><div class="k">Years</div></div>
+      <div class="stat"><div class="v">$140M</div><div class="k">Under Management</div></div>
+      <div class="stat"><div class="v">1,200</div><div class="k">Investors</div></div>
+      <div class="stat"><div class="v">92%</div><div class="k">Went Public</div></div>
+    </div>
+    <p class="stat-caption">92% of the companies we have ever invested in have gone public. Every position this fund has ever taken, not the ones that worked.</p>
+    <div class="logos"><span>Facebook</span><span>Uber</span><span>Airbnb</span><span>SpaceX</span></div>
+    <p class="logo-caption">Held before they listed. SpaceX held from 2024, before it ever went public.</p>
+  </div>
+</div>
+
+<section class="pale">
+  <div class="wrap">
+    <div class="sec-eyebrow reveal">Questions</div>
+    <h2 class="sec-title reveal">Common Questions</h2>
+    <div class="faq reveal">
+      <details><summary>What exactly do you do?<span class="plus">+</span></summary><div class="answer">Lumara buys institutional allocations in late-stage private companies and splits them into $25,000 positions for accredited investors. 25 years, $140M under management, 1,200 investors.</div></details>
+      <details><summary>How does this work?<span class="plus">+</span></summary><div class="answer">A fifteen-minute call verifies accreditation and walks the memo on current open names. E-sign, wire, hold. The position exits at listing or acquisition.</div></details>
+      <details><summary>Isn&rsquo;t &ldquo;uncorrelated&rdquo; just another word for &ldquo;you can&rsquo;t see the losses&rdquo;?<span class="plus">+</span></summary><div class="answer">Partly, and we would rather say it than have you discover it. Private positions can lose value, and you will not see a daily mark. What you gain is exposure priced by company events instead of market afternoons. That trade is the product; make it with open eyes.</div></details>
+      <details><summary>How do I get my money out?<span class="plus">+</span></summary><div class="answer">You wait for the listing or an acquisition. There is no daily liquidity, no early redemption. A private sleeve should never hold money you need in the next four years.</div></details>
+      <details><summary>What are realistic expectations?<span class="plus">+</span></summary><div class="answer">We do not quote projected returns. 92% of the companies we have ever invested in have gone public, and positions typically sit 18 to 36 months from our entry to a listing window. No listing is guaranteed.</div></details>
+      <details><summary>My advisor has never mentioned this. Why?<span class="plus">+</span></summary><div class="answer">Advisors sell what their platform carries, and late-stage private rounds are not on the shelf, because they are sold in seven-figure blocks. The Allocation Split is what puts a $25,000 door on that market.</div></details>
+      <details><summary>How much of a portfolio does this usually touch?<span class="plus">+</span></summary><div class="answer">That is between you and your advisor. Positions start at $25,000 each, and most of our investors hold 3 to 5 names. We size allocations; we do not give financial advice.</div></details>
+      <details><summary>Am I eligible?<span class="plus">+</span></summary><div class="answer">If you&rsquo;re accredited, yes. Verification is real, as the law requires for a public offer: statements, a CPA or attorney letter, or a third-party service. Most clear it in a day.</div></details>
+      <details><summary>What does it cost?<span class="plus">+</span></summary><div class="answer">The minimum is $25,000 per position. The full fee structure is in the subscription documents and walked through in writing on the call, before you commit to anything.</div></details>
+    </div>
+  </div>
+</section>
+
+<div class="final">
+  <div class="wrap">
+    <h2>Open My Private Sleeve</h2>
+    <button class="cta-btn" data-book>Open My Private Sleeve</button>
+    <div class="micro">Accreditation verified. The memo on current names. Fifteen minutes.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fm">LUMARA LP</div>
+    <p>Private investments are illiquid and may lose their entire value. Past performance does not predict future results. No IPO, listing or exit is guaranteed. Offer available to verified accredited investors only, pursuant to Rule 506(c) of Regulation D.</p>
+    <p>This site is not a part of the Facebook&trade; website or Facebook&trade; Inc. Additionally, this site is NOT endorsed by Facebook&trade; in any way. FACEBOOK&trade; is a trademark of META&trade;, Inc.</p>
+  </div>
+</footer>
+
+<div class="modal-back" id="modalBack" role="dialog" aria-modal="true">
+  <div class="modal">
+    <h4 id="modalTitle">Booking Placeholder</h4>
+    <p id="modalBody">Set TYPEFORM_URL at the top of this file and every button on the page opens your application form.</p>
+    <button id="modalClose">Close</button>
+  </div>
+</div>
+
+<script>
+  /* ====== SWAP-INS ====== */
+  var TYPEFORM_URL = "";   /* <-- paste booking / Typeform URL */
+  var VSL_EMBED_URL = "";  /* <-- paste hosted VSL URL (angle script B "The Window") */
+
+  (function () {
+    var back = document.getElementById("modalBack");
+    var title = document.getElementById("modalTitle");
+    var body = document.getElementById("modalBody");
+    function show(t, b) { title.textContent = t; body.textContent = b; back.classList.add("show"); }
+    document.getElementById("modalClose").addEventListener("click", function () { back.classList.remove("show"); });
+    back.addEventListener("click", function (e) { if (e.target === back) back.classList.remove("show"); });
+    document.querySelectorAll("[data-book]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        if (TYPEFORM_URL) { try { if (window.tf && window.tf.makePopup) { window.tf.makePopup(TYPEFORM_URL, { mode: "popup", autoClose: 3000 }).open(); } else { window.open(TYPEFORM_URL, "_blank"); } } catch (err) { window.open(TYPEFORM_URL, "_blank"); } }
+        else show("Booking Placeholder", "Set TYPEFORM_URL at the top of this file and every button on the page opens your application form.");
+      });
+    });
+    var vsl = document.getElementById("vsl");
+    function playVsl() {
+      if (VSL_EMBED_URL) { window.open(VSL_EMBED_URL, "_blank"); }
+      else show("VSL Placeholder", "Upload the VSL (angle script B “The Window” — script already written) and set VSL_EMBED_URL, or replace the #vsl block with your player embed.");
+    }
+    vsl.addEventListener("click", playVsl);
+    vsl.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playVsl(); } });
+  })();
+
+  (function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
