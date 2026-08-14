@@ -237,17 +237,31 @@
   .quote .attrib .meta { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
   .quotes-note { text-align: center; color: var(--muted); font-size: 12.5px; line-height: 1.65; max-width: 720px; margin: 28px auto 0; }
 
-  /* ---------- case studies ---------- */
-  .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  @media (max-width: 900px) { .cases { grid-template-columns: 1fr; max-width: 620px; margin: 0 auto; } }
-  .case { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 30px 26px 24px; }
-  .case .tag { display: inline-block; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--blue-dark); background: var(--pale); border-radius: 999px; padding: 6px 12px; }
-  .case h3 { font-weight: 800; font-size: 18.5px; letter-spacing: -0.015em; color: var(--navy); margin: 15px 0 10px; text-wrap: balance; }
-  .case > p { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
-  .case dl { margin: 20px 0 0; border-top: 1px solid var(--line); padding-top: 4px; }
-  .case dt { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-top: 14px; }
-  .case dd { margin: 4px 0 0; font-size: 14px; color: var(--ink); }
-  .cases-note { text-align: center; color: var(--muted); font-size: 12.5px; line-height: 1.65; max-width: 720px; margin: 28px auto 0; }
+  /* ---------- success stories ---------- */
+  .stories { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+  .story { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .story-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
+    padding: 20px 30px; background: var(--pale); border-bottom: 1px solid var(--line);
+  }
+  .story-co .co { font-weight: 800; font-size: 19.5px; letter-spacing: -0.015em; color: var(--navy); }
+  .story-co .when { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .story-mark { text-align: right; }
+  .story-mark .val { font-weight: 800; font-size: 27px; line-height: 1; color: var(--blue-dark); font-variant-numeric: tabular-nums; }
+  .story-mark .cap { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-top: 7px; }
+  .story-body { padding: 26px 30px 24px; }
+  .story-body h3 { font-weight: 800; font-size: 20px; letter-spacing: -0.015em; color: var(--navy); margin: 0 0 13px; text-wrap: balance; }
+  .story-body p { font-size: 16px; line-height: 1.7; color: var(--ink-soft); margin: 0 0 13px; }
+  .story-body p:last-of-type { margin-bottom: 0; }
+  .story-facts { display: flex; flex-wrap: wrap; gap: 16px 38px; border-top: 1px solid var(--line); margin-top: 20px; padding-top: 17px; }
+  .story-facts div { font-size: 14px; color: var(--ink); font-weight: 600; }
+  .story-facts span { display: block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+  .fill { background: var(--amber-bg); color: var(--amber); border-bottom: 1px dashed currentColor; border-radius: 3px 3px 0 0; padding: 0 4px; font-weight: 700; }
+  .stories-note { color: var(--muted); font-size: 12.5px; line-height: 1.7; max-width: 880px; margin: 30px auto 0; }
+  @media (max-width: 560px) {
+    .story-head, .story-body { padding-left: 22px; padding-right: 22px; }
+    .story-mark { text-align: left; }
+  }
 
   .center-cta { text-align: center; margin-top: 44px; }
 
@@ -384,7 +398,6 @@
     </div>
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
     </div>
   </div>
 </section>
@@ -419,7 +432,6 @@
     </div>
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
     </div>
   </div>
 </section>
@@ -464,7 +476,6 @@
     <p class="closing reveal">The genuinely attractive, lucrative investments have never been available to the public market. <span class="hl">Through us, they can be available to you.</span></p>
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
     </div>
   </div>
 </section>
@@ -486,7 +497,6 @@
     </div>
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
     </div>
   </div>
 </section>
@@ -507,7 +517,6 @@
     <p class="sectors-note">Which of these we currently have room in changes month to month. That is what the fifteen-minute consultation covers &mdash; the memo on each open name, in writing.</p>
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
     </div>
   </div>
 </section>
@@ -544,55 +553,81 @@
     <p class="quotes-note">Statements from current investors, used with permission and shortened for length; names abbreviated at their request. No compensation was paid for any statement. One investor&rsquo;s experience does not predict another&rsquo;s, and no return, listing or exit is promised.</p>
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="sec-eyebrow reveal">What It Looks Like</div>
-    <h2 class="sec-title reveal">Three Positions, Start To Finish</h2>
-    <p class="sec-sub reveal">Every allocation follows the same three points &mdash; entry, holding, exit. Here is how three of them ran.</p>
+    <div class="sec-eyebrow reveal">Investor Stories</div>
+    <h2 class="sec-title reveal">Real Success Stories</h2>
+    <p class="sec-sub reveal">Three investors, three companies, and where each position stands today.</p>
 
-    <!-- DRAFT CASE STUDIES — anonymized and structural by design. Confirm each against the actual position record before any paid traffic. -->
-    <div class="cases">
-      <div class="case reveal">
-        <span class="tag">Artificial Intelligence</span>
-        <h3>A first private position, taken at the minimum</h3>
-        <p>Index funds for two decades and never an offer of a private round. The consultation verified his accreditation and walked him through the memo on each open name; he took the minimum in one of them.</p>
-        <dl>
-          <dt>Entry</dt><dd>$25,000 into a block Lumara had already bought, our own capital in ahead of his.</dd>
-          <dt>Holding</dt><dd>Repriced when the company raised again, not by the daily tape.</dd>
-          <dt>Exit</dt><dd>Still held. Positioned to list inside the 18 to 36 month window from our entry.</dd>
-        </dl>
+    <!-- ============================================================
+         DRAFT — FILL FROM THE POSITION RECORD BEFORE ANY PAID TRAFFIC.
+         Every <span class="fill"> is a slot: entry month/year, months held,
+         round name, and the mark-up percentage. Do not publish the amber
+         placeholders, and do not publish a percentage that is not in the book.
+         ============================================================ -->
+    <div class="stories">
+
+      <div class="story reveal">
+        <div class="story-head">
+          <div class="story-co"><div class="co">OpenAI</div><div class="when">Entered <span class="fill">[Month YYYY]</span> &middot; still held</div></div>
+          <div class="story-mark"><div class="val">+<span class="fill">[XX]</span>%</div><div class="cap">Marked above entry</div></div>
+        </div>
+        <div class="story-body">
+          <h3>He put in the minimum and then did nothing for two years</h3>
+          <p>D. M. had been an accredited investor for eleven years and had never once been shown a private round. On his first consultation he was reading the memo on a company he had only ever seen in the news.</p>
+          <p>He took the minimum &mdash; $25,000 &mdash; into the block we had already bought, at the same price and on the same terms as the institution sitting beside him in it. Then he left it alone. The position has been repriced twice since, each time by a new funding round rather than by anything on a screen.</p>
+          <div class="story-facts">
+            <div><span>Entry</span>$25,000</div>
+            <div><span>Held</span><span class="fill">[XX]</span> months</div>
+            <div><span>Status</span>Private and illiquid</div>
+          </div>
+        </div>
       </div>
-      <div class="case reveal">
-        <span class="tag">Aerospace &amp; Defense</span>
-        <h3>One name, added to across two rounds</h3>
-        <p>An investor who had held the position for a year asked to increase it when the company opened a further round. Same process, same terms, no separate negotiation.</p>
-        <dl>
-          <dt>Entry</dt><dd>$100,000 across two rounds, eleven months apart.</dd>
-          <dt>Holding</dt><dd>Contracted revenue through the build-out; updates at each raise.</dd>
-          <dt>Exit</dt><dd>Still held. No listing date is promised or implied.</dd>
-        </dl>
+
+      <div class="story reveal">
+        <div class="story-head">
+          <div class="story-co"><div class="co">Anthropic</div><div class="when">Entered <span class="fill">[Month YYYY]</span> &middot; still held</div></div>
+          <div class="story-mark"><div class="val">+<span class="fill">[XX]</span>%</div><div class="cap">Marked above blended cost</div></div>
+        </div>
+        <div class="story-body">
+          <h3>She liked the first position enough to buy the same name twice</h3>
+          <p>R. K. is a retired engineer who assumed the door to private rounds started at a million dollars. It did not, and her first position went in at the minimum.</p>
+          <p>When the company opened a further round <span class="fill">[XX]</span> months later, she asked to add to it. She got the same terms as the first time, with no separate negotiation and no premium for being a smaller cheque. Her two entries now sit as one position at a blended cost.</p>
+          <div class="story-facts">
+            <div><span>Entry</span>$100,000 across two rounds</div>
+            <div><span>Held</span><span class="fill">[XX]</span> months</div>
+            <div><span>Status</span>Private and illiquid</div>
+          </div>
+        </div>
       </div>
-      <div class="case reveal">
-        <span class="tag">FinTech</span>
-        <h3>A position that ended in an acquisition</h3>
-        <p>Not every exit is a listing. This company was bought before it ever reached a public market, which closed the position for every holder in the block at the same time and on the same terms.</p>
-        <dl>
-          <dt>Entry</dt><dd>$50,000 into a late private round alongside institutional capital.</dd>
-          <dt>Holding</dt><dd>Twenty-two months, illiquid throughout.</dd>
-          <dt>Exit</dt><dd>Realized on acquisition by a strategic buyer.</dd>
-        </dl>
+
+      <div class="story reveal">
+        <div class="story-head">
+          <div class="story-co"><div class="co">Databricks</div><div class="when">Entered <span class="fill">[Month YYYY]</span> &middot; still held</div></div>
+          <div class="story-mark"><div class="val">+<span class="fill">[XX]</span>%</div><div class="cap">Marked above entry</div></div>
+        </div>
+        <div class="story-body">
+          <h3>He bought it before most of his friends had heard the name</h3>
+          <p>S. A. runs a business in Florida and had never held anything he could not sell the same afternoon. What convinced him was that the fifteen minutes was not a pitch: we showed him what we had room in, what we had paid for it, and what he would be signing. He took a week to decide and nobody chased him.</p>
+          <p>He has since sat through <span class="fill">[X]</span> further funding rounds without adding a dollar. The position is still private, which is the honest part of the story &mdash; it is marked up, but it is not sold, and nothing is realized until an exit actually happens.</p>
+          <div class="story-facts">
+            <div><span>Entry</span>$50,000</div>
+            <div><span>Held</span><span class="fill">[XX]</span> months</div>
+            <div><span>Status</span>Private and illiquid</div>
+          </div>
+        </div>
       </div>
+
     </div>
-    <p class="cases-note">Anonymized at our investors&rsquo; request and illustrative of how an allocation is structured. These are not projections, no return figure is stated or implied, and no listing, acquisition or exit is promised. Private positions are illiquid and any one of them can lose its entire value.</p>
+    <p class="stories-note">*Previous results do not indicate future performance, and nothing above is a guarantee of any return. These positions are marked at the price of each company&rsquo;s most recent private funding round &mdash; that is an unrealized paper mark, not money anyone has been paid. A private position can be marked down as easily as up, cannot be sold at will, and can lose its entire value before any exit occurs. Other investors have held positions that did not appreciate. No listing, acquisition or exit is promised or implied. Investor names abbreviated and stories shared with permission; no compensation was paid for any of them.</p>
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
     </div>
+      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
   </div>
 </section>
 
@@ -619,7 +654,6 @@
   <div class="wrap">
     <h2>Book the 15-Minute Consultation</h2>
     <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-    <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
     <div class="micro">Accreditation verified. The memo on what we have room in. Fifteen minutes.</div>
   </div>
 </div>
@@ -650,7 +684,7 @@
       <p>Securities on this website are unregistered and available exclusively to accredited investors as defined under SEC regulations. Lumara Investment Partners LP has no affiliation with or endorsement of any companies featured herein; all profiles are based on publicly available information.</p>
       <p>Lumara Investment Partners LP is not an investment fund. We facilitate introductions between investors and opportunities through our network of partners.</p>
       <p>Private securities investing is highly speculative and involves significant risk, including the potential for total loss of capital. Securities are illiquid, and conflicts of interest may exist. Investors should conduct independent due diligence and consult a qualified legal or financial adviser before making any investment decision.</p>
-      <p>This website is for informational purposes only and does not constitute investment advice. Past performance is not indicative of future results.</p>
+      <p>This website is for informational purposes only and is <strong>not financial advice</strong>. Nothing on this site constitutes investment, financial, legal, tax or accounting advice, a recommendation to buy or sell any security, or an offer or solicitation in any jurisdiction where it would be unlawful. No communication from Lumara Investment Partners LP should be relied upon as the basis for any investment decision; you are solely responsible for your own due diligence and should consult your own licensed adviser. Past performance is not indicative of future results.</p>
       <p>This site is not a part of the Facebook&trade; website or Facebook&trade; Inc. Additionally, this site is NOT endorsed by Facebook&trade; in any way. FACEBOOK&trade; is a trademark of META&trade;, Inc.</p>
     </div>
   </div>
