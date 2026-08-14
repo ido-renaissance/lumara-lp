@@ -247,7 +247,9 @@
   .story-co .co { font-weight: 800; font-size: 19.5px; letter-spacing: -0.015em; color: var(--navy); }
   .story-co .when { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
   .story-mark { text-align: right; }
-  .story-mark .val { font-weight: 800; font-size: 27px; line-height: 1; color: var(--blue-dark); font-variant-numeric: tabular-nums; }
+  .story-mark .val { font-weight: 800; font-size: 27px; line-height: 1.1; color: var(--blue-dark); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .story-mark .val.sm { font-size: 21px; }
+  .story-mark .val .arrow { color: var(--slate); font-weight: 700; margin: 0 2px; }
   .story-mark .cap { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-top: 7px; }
   .story-body { padding: 26px 30px 24px; }
   .story-body h3 { font-weight: 800; font-size: 20px; letter-spacing: -0.015em; color: var(--navy); margin: 0 0 13px; text-wrap: balance; }
@@ -561,28 +563,56 @@
   <div class="wrap">
     <div class="sec-eyebrow reveal">Investor Stories</div>
     <h2 class="sec-title reveal">Real Success Stories</h2>
-    <p class="sec-sub reveal">Three investors, three companies, and where each position stands today.</p>
+    <p class="sec-sub reveal">Four investors, four companies, and where each position stands today.</p>
 
-    <!-- ============================================================
-         DRAFT — FILL FROM THE POSITION RECORD BEFORE ANY PAID TRAFFIC.
-         Every <span class="fill"> is a slot: entry month/year, months held,
-         round name, and the mark-up percentage. Do not publish the amber
-         placeholders, and do not publish a percentage that is not in the book.
-         ============================================================ -->
     <div class="stories">
 
       <div class="story reveal">
         <div class="story-head">
-          <div class="story-co"><div class="co">OpenAI</div><div class="when">Entered <span class="fill">[Month YYYY]</span> &middot; still held</div></div>
-          <div class="story-mark"><div class="val">+<span class="fill">[XX]</span>%</div><div class="cap">Marked above entry</div></div>
+          <div class="story-co"><div class="co">SpaceX</div><div class="when">Entered 2024 &middot; position realized</div></div>
+          <div class="story-mark"><div class="val">+300%</div><div class="cap">Realized return</div></div>
         </div>
         <div class="story-body">
-          <h3>He put in the minimum and then did nothing for two years</h3>
-          <p>D. M. had been an accredited investor for eleven years and had never once been shown a private round. On his first consultation he was reading the memo on a company he had only ever seen in the news.</p>
-          <p>He took the minimum &mdash; $25,000 &mdash; into the block we had already bought, at the same price and on the same terms as the institution sitting beside him in it. Then he left it alone. The position has been repriced twice since, each time by a new funding round rather than by anything on a screen.</p>
+          <h3>He bought it while the only other way in was to work there</h3>
+          <p>In 2024 SpaceX was private, and for almost everyone the only route to owning any of it was an employee badge. He took a position in the block we held instead &mdash; the same round, at the same price, as the institutions in it.</p>
+          <p>That one is finished. The position was realized once the company reached a public market, and it returned over 300% on what he put in. It is the cleanest version of what this is meant to do: in privately, out publicly. It is also the exception, not the rule &mdash; most positions take longer and not all of them end this way.</p>
           <div class="story-facts">
-            <div><span>Entry</span>$25,000</div>
-            <div><span>Held</span><span class="fill">[XX]</span> months</div>
+            <div><span>Entered</span>2024</div>
+            <div><span>Status</span>Realized</div>
+            <div><span>Return</span>Over 300%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story reveal">
+        <div class="story-head">
+          <div class="story-co"><div class="co">Anthropic</div><div class="when">Entered mid-2025 &middot; still held</div></div>
+          <div class="story-mark"><div class="val">+150%</div><div class="cap">Marked above entry</div></div>
+        </div>
+        <div class="story-body">
+          <h3>She has not touched it once since the day she wired</h3>
+          <p>She came into Anthropic in the middle of 2025 and has done nothing with it since. There is no ticker to check and nothing to react to. The position gets repriced when the company raises again, and she gets a note from us when it does.</p>
+          <p>It is currently marked more than 150% above what she paid. That is a paper mark set by a later funding round, not money that has been paid to anyone &mdash; the position is still private, still illiquid, and nothing is realized until an exit actually happens.</p>
+          <div class="story-facts">
+            <div><span>Entered</span>Mid-2025</div>
+            <div><span>Status</span>Private and illiquid</div>
+            <div><span>Marked</span>+150% above entry</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story reveal">
+        <div class="story-head">
+          <div class="story-co"><div class="co">Cohere</div><div class="when">Entered at a $6B valuation</div></div>
+          <div class="story-mark"><div class="val sm">$6B <span class="arrow">&rarr;</span> $20B</div><div class="cap">Valuation at entry vs. today</div></div>
+        </div>
+        <div class="story-body">
+          <h3>A few weeks after he wired, the company was worth three times more</h3>
+          <p>He took his position when Cohere was valued at $6 billion. Weeks later the company signed a major contract and announced a new round at $20 billion.</p>
+          <p>Nothing about what he owns changed &mdash; same shares, same terms, same certificate. What changed is the price the next investor has to pay to sit where he already sits. That gap is the entire reason to be early. It is also why it cannot be planned for, and why nobody should expect it to repeat.</p>
+          <div class="story-facts">
+            <div><span>Entry valuation</span>$6 billion</div>
+            <div><span>Next round</span>$20 billion</div>
             <div><span>Status</span>Private and illiquid</div>
           </div>
         </div>
@@ -590,40 +620,23 @@
 
       <div class="story reveal">
         <div class="story-head">
-          <div class="story-co"><div class="co">Anthropic</div><div class="when">Entered <span class="fill">[Month YYYY]</span> &middot; still held</div></div>
-          <div class="story-mark"><div class="val">+<span class="fill">[XX]</span>%</div><div class="cap">Marked above blended cost</div></div>
+          <div class="story-co"><div class="co">Prometheus</div><div class="when">Entered at a $41B valuation &middot; still held</div></div>
+          <div class="story-mark"><div class="val">$41B</div><div class="cap">Valuation at entry</div></div>
         </div>
         <div class="story-body">
-          <h3>She liked the first position enough to buy the same name twice</h3>
-          <p>R. K. is a retired engineer who assumed the door to private rounds started at a million dollars. It did not, and her first position went in at the minimum.</p>
-          <p>When the company opened a further round <span class="fill">[XX]</span> months later, she asked to add to it. She got the same terms as the first time, with no separate negotiation and no premium for being a smaller cheque. Her two entries now sit as one position at a blended cost.</p>
+          <h3>He signed the same paper JPMorgan and BlackRock signed</h3>
+          <p>Prometheus is Jeff Bezos&rsquo;s new AI company. He came into it at a $41 billion valuation &mdash; while OpenAI and Anthropic are both past a trillion &mdash; on the same terms, at the same valuation, that JPMorgan and BlackRock came in at.</p>
+          <p>That is the whole proposition in one sentence. Not a worse deal for a smaller cheque, not a fund-of-a-fund with a layer of fees on top, and not a different share class. The same deal, because we buy the block first and you take a piece of ours.</p>
           <div class="story-facts">
-            <div><span>Entry</span>$100,000 across two rounds</div>
-            <div><span>Held</span><span class="fill">[XX]</span> months</div>
-            <div><span>Status</span>Private and illiquid</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="story reveal">
-        <div class="story-head">
-          <div class="story-co"><div class="co">Databricks</div><div class="when">Entered <span class="fill">[Month YYYY]</span> &middot; still held</div></div>
-          <div class="story-mark"><div class="val">+<span class="fill">[XX]</span>%</div><div class="cap">Marked above entry</div></div>
-        </div>
-        <div class="story-body">
-          <h3>He bought it before most of his friends had heard the name</h3>
-          <p>S. A. runs a business in Florida and had never held anything he could not sell the same afternoon. What convinced him was that the fifteen minutes was not a pitch: we showed him what we had room in, what we had paid for it, and what he would be signing. He took a week to decide and nobody chased him.</p>
-          <p>He has since sat through <span class="fill">[X]</span> further funding rounds without adding a dollar. The position is still private, which is the honest part of the story &mdash; it is marked up, but it is not sold, and nothing is realized until an exit actually happens.</p>
-          <div class="story-facts">
-            <div><span>Entry</span>$50,000</div>
-            <div><span>Held</span><span class="fill">[XX]</span> months</div>
+            <div><span>Entry valuation</span>$41 billion</div>
+            <div><span>Alongside</span>JPMorgan, BlackRock</div>
             <div><span>Status</span>Private and illiquid</div>
           </div>
         </div>
       </div>
 
     </div>
-    <p class="stories-note">*Previous results do not indicate future performance, and nothing above is a guarantee of any return. These positions are marked at the price of each company&rsquo;s most recent private funding round &mdash; that is an unrealized paper mark, not money anyone has been paid. A private position can be marked down as easily as up, cannot be sold at will, and can lose its entire value before any exit occurs. Other investors have held positions that did not appreciate. No listing, acquisition or exit is promised or implied. Investor names abbreviated and stories shared with permission; no compensation was paid for any of them.</p>
+    <p class="stories-note">*Previous results do not indicate future performance, and nothing above is a guarantee of any return. <strong>These are individual positions chosen as examples. They are not a representative sample of all positions we have taken, and not every position has appreciated &mdash; some investors have lost money.</strong> Except where a position is marked realized, every figure shown is an unrealized paper mark set by a company&rsquo;s most recent private funding round, not money that has been paid to anyone. A private position can be marked down as easily as up, cannot be sold at will, and can lose its entire value before any exit occurs. A rise in a company&rsquo;s valuation is not the same as a return to an investor. No listing, acquisition or exit is promised or implied. Investor names withheld and stories shared with permission; no compensation was paid for any of them. Company names are used to identify positions held and do not imply any affiliation with or endorsement by those companies or by any other investor named.</p>
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
     </div>
