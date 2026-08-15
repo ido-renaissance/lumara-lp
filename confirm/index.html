@@ -12,9 +12,9 @@
 <title>Lumara · You’re Booked</title>
 <style>
   :root{
-    --paper:#ffffff; --pale:#f2f7fb; --ink:#16233f; --ink-soft:#33415f; --muted:#5b6884;
-    --line:#dfe8f0; --deep:#101a38; --blue:#2196c4; --blue-dark:#17789f;
-    --shadow:0 6px 24px rgba(22,35,63,.08); --radius:12px;
+    --paper:#ffffff; --pale:#f1f6fc; --ink:#1a2447; --ink-soft:#3a456a; --muted:#5f6a88;
+    --line:#dee6f1; --deep:#121a3c; --blue:#3f8fd6; --blue-dark:#2c6fb5;
+    --shadow:0 6px 24px rgba(30,39,78,.08); --radius:12px;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -22,7 +22,11 @@
   .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
   .topbar{border-bottom:1px solid var(--line);padding:16px 0}
   .topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-  .logo{font-weight:800;letter-spacing:.18em;color:var(--deep);font-size:15px}
+  .logo{display:inline-flex;align-items:center;gap:10px}
+  .logo-mark{width:38px;height:38px;flex-shrink:0}
+  .logo-type{display:flex;flex-direction:column;line-height:1;text-align:left}
+  .logo-name{font-family:Georgia,"Times New Roman",Times,serif;font-weight:700;font-size:21px;letter-spacing:-.005em;color:#1e274e}
+  .logo-sub{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:#8c93ae;margin-top:6px}
   .trust{font-size:12px;color:var(--muted)}
   .eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
   section{padding:56px 0}
@@ -33,7 +37,7 @@
   .vid.small{max-width:none;margin:0}
   .play{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center}
   .play::after{content:"";display:block;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff;margin-left:4px}
-  .vid .cap{color:#93a5c6;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:0 12px;text-align:center}
+  .vid .cap{color:#98a6cb;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:0 12px;text-align:center}
   .band{background:var(--pale)}
   h2{font-weight:800;font-size:clamp(1.3rem,2.6vw,1.7rem);letter-spacing:-.01em;text-align:center;margin-bottom:8px}
   .lead{text-align:center;color:var(--muted);font-size:15px;max-width:560px;margin:0 auto 36px}
@@ -54,7 +58,7 @@
 
 
 <div class="topbar"><div class="wrap">
-  <span class="logo">LUMARA LP</span>
+  <span class="logo"><svg class="logo-mark" viewBox="0 0 80 80" role="img" aria-label="Lumara Investment Partners LP"><g fill="#4a9ade"><path d="M0 20A20 20 0 0 1 20 0L20 20Z"/><path d="M20 20A20 20 0 0 1 60 20Z"/><path d="M60 0A20 20 0 0 1 80 20L60 20Z"/><path d="M20 60A20 20 0 0 1 20 20Z"/><circle cx="40" cy="40" r="20"/><path d="M60 20A20 20 0 0 1 60 60Z"/><path d="M20 80A20 20 0 0 1 0 60L20 60Z"/><path d="M60 60A20 20 0 0 1 20 60Z"/><path d="M80 60A20 20 0 0 1 60 80L60 60Z"/></g></svg><span class="logo-type"><span class="logo-name">Lumara</span><span class="logo-sub">Investment Partners LP</span></span></span>
   <span class="trust">Verified Accredited Investors · Rule 506(c)</span>
 </div></div>
 

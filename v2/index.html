@@ -21,11 +21,11 @@
      ============================================================ -->
 <style>
   :root{
-    --paper:#ffffff; --pale:#eef4fa; --pale2:#e2ecf6; --ink:#16233f; --ink-soft:#33415f; --muted:#5b6884;
-    --line:#d6e3ef; --edge:#c2d5e8; --navy:#1c2751; --deep:#0d1631; --blue:#2196c4; --blue-dark:#17789f;
-    --band-ink:#eaf3fb; --band-muted:#93a5c6; --shadow:0 10px 34px rgba(22,35,63,.10);
+    --paper:#ffffff; --pale:#eef3fc; --pale2:#e4ebf8; --ink:#1a2447; --ink-soft:#3a456a; --muted:#5f6a88;
+    --line:#d8e1f1; --edge:#c6d3ec; --navy:#1e274e; --deep:#0f1637; --blue:#3f8fd6; --blue-dark:#2c6fb5;
+    --band-ink:#eaf0fb; --band-muted:#98a6cb; --shadow:0 10px 34px rgba(30,39,78,.10);
     --radius:14px; --amber:#b7791f; --amber-bg:#fdf6e7;
-    --slate:#6d84ad; --serif: Georgia, "Times New Roman", Times, serif;
+    --slate:#6f83b3; --serif: Georgia, "Times New Roman", Times, serif;
     --gut: clamp(14px, 2vw, 36px);
   }
   * { box-sizing: border-box; }
@@ -41,11 +41,11 @@
 
   /* ---------- logo ---------- */
   .logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
-  .logo-mark { width: 46px; height: 46px; flex-shrink: 0; }
+  .logo-mark { width: 48px; height: 48px; flex-shrink: 0; }
   .logo-type { display: flex; flex-direction: column; line-height: 1; text-align: left; }
-  .logo-name { font-family: var(--serif); font-weight: 700; font-size: 27px; letter-spacing: -0.01em; color: #2d3561; }
-  .logo-sub { font-size: 9.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #8a93b0; margin-top: 5px; }
-  @media (max-width: 520px) { .logo-mark { width: 34px; height: 34px; } .logo-name { font-size: 21px; } .logo-sub { font-size: 8.5px; letter-spacing: 0.16em; } }
+  .logo-name { font-family: var(--serif); font-weight: 700; font-size: 26px; letter-spacing: -0.005em; color: #1e274e; }
+  .logo-sub { font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: #8c93ae; margin-top: 6px; }
+  @media (max-width: 520px) { .logo-mark { width: 36px; height: 36px; } .logo-name { font-size: 20px; } .logo-sub { font-size: 10px; letter-spacing: 0.13em; } }
 
   /* ---------- top bar ---------- */
   .topbar { background: var(--paper); border-bottom: 2px solid var(--navy); }
@@ -396,7 +396,7 @@
 /* valcharts:begin */
   /* ---------- where we got in: valuation charts, white cards on the dark band ---------- */
   .valcharts { background: var(--deep); color: var(--band-ink); }
-  .valcharts .sec-eyebrow { color: #6cc6e8; }
+  .valcharts .sec-eyebrow { color: #8bb8f0; }
   .valcharts .sec-title { color: var(--band-ink); }
   .valcharts .sec-sub { color: var(--band-muted); }
   .vc-legend {
@@ -506,17 +506,7 @@
 <div class="topbar">
   <div class="wrap">
     <span class="logo">
-      <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-label="Lumara Investment Partners LP">
-        <g fill="#6ba8e0">
-          <rect x="3"  y="3"  width="27" height="18" rx="8"/>
-          <rect x="34" y="3"  width="27" height="18" rx="8"/>
-          <rect x="3"  y="23" width="27" height="18" rx="8"/>
-          <rect x="34" y="23" width="27" height="18" rx="8"/>
-          <rect x="3"  y="43" width="27" height="18" rx="8"/>
-          <rect x="34" y="43" width="27" height="18" rx="8"/>
-        </g>
-        <circle cx="32" cy="32" r="15" fill="#4a90d8"/>
-      </svg>
+      <svg class="logo-mark" viewBox="0 0 80 80" role="img" aria-label="Lumara Investment Partners LP"><g fill="#4a9ade"><path d="M0 20A20 20 0 0 1 20 0L20 20Z"/><path d="M20 20A20 20 0 0 1 60 20Z"/><path d="M60 0A20 20 0 0 1 80 20L60 20Z"/><path d="M20 60A20 20 0 0 1 20 20Z"/><circle cx="40" cy="40" r="20"/><path d="M60 20A20 20 0 0 1 60 60Z"/><path d="M20 80A20 20 0 0 1 0 60L20 60Z"/><path d="M60 60A20 20 0 0 1 20 60Z"/><path d="M80 60A20 20 0 0 1 60 80L60 60Z"/></g></svg>
       <span class="logo-type">
         <span class="logo-name">Lumara</span>
         <span class="logo-sub">Investment Partners LP</span>
@@ -547,8 +537,8 @@
   <div class="wrap">
     <div class="proof-line">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M4 17.5L10 11l4 4 6.5-7" stroke="#17789f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M15.5 8h5.2v5.2" stroke="#17789f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 17.5L10 11l4 4 6.5-7" stroke="#2c6fb5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15.5 8h5.2v5.2" stroke="#2c6fb5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <p><span class="pct">9 out of 10</span> of the companies we&rsquo;ve ever invested in have gone public.</p>
     </div>
@@ -1018,17 +1008,7 @@
   <div class="wrap">
     <div class="fm">
       <span class="logo">
-        <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-label="Lumara Investment Partners LP">
-          <g fill="#6ba8e0">
-            <rect x="3"  y="3"  width="27" height="18" rx="8"/>
-            <rect x="34" y="3"  width="27" height="18" rx="8"/>
-            <rect x="3"  y="23" width="27" height="18" rx="8"/>
-            <rect x="34" y="23" width="27" height="18" rx="8"/>
-            <rect x="3"  y="43" width="27" height="18" rx="8"/>
-            <rect x="34" y="43" width="27" height="18" rx="8"/>
-          </g>
-          <circle cx="32" cy="32" r="15" fill="#4a90d8"/>
-        </svg>
+        <svg class="logo-mark" viewBox="0 0 80 80" role="img" aria-label="Lumara Investment Partners LP"><g fill="#4a9ade"><path d="M0 20A20 20 0 0 1 20 0L20 20Z"/><path d="M20 20A20 20 0 0 1 60 20Z"/><path d="M60 0A20 20 0 0 1 80 20L60 20Z"/><path d="M20 60A20 20 0 0 1 20 20Z"/><circle cx="40" cy="40" r="20"/><path d="M60 20A20 20 0 0 1 60 60Z"/><path d="M20 80A20 20 0 0 1 0 60L20 60Z"/><path d="M60 60A20 20 0 0 1 20 60Z"/><path d="M80 60A20 20 0 0 1 60 80L60 60Z"/></g></svg>
         <span class="logo-type">
           <span class="logo-name">Lumara</span>
           <span class="logo-sub">Investment Partners LP</span>
