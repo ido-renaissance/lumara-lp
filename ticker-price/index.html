@@ -152,24 +152,25 @@
      once the browser chrome is on it), so every vertical comes down together. */
   @media (max-width: 640px) {
     .topbar .wrap { padding-top: 11px; padding-bottom: 11px; }
-    .hero { padding: 26px 0 34px; }
-    .hero h1 { font-size: 32px; line-height: 1.13; margin-top: 11px; }
-    .hero .sub { font-size: 16.5px; line-height: 1.45; margin-top: 11px; }
-    .vsl { margin-top: 20px; gap: 9px; }
-    .vsl .play { width: 60px; height: 60px; }
-    .vsl .play svg { width: 22px; height: 22px; }
-    .cta-btn { margin-top: 20px; padding: 15px 24px; font-size: 15.5px; }
+    .hero { padding: 26px 0 32px; }
+    .hero h1 { font-size: 32px; line-height: 1.13; margin-top: 12px; }
+    .hero .sub { font-size: 16.5px; line-height: 1.5; margin-top: 12px; }
+    .vsl { margin-top: 20px; gap: 10px; }
+    .vsl .play { width: 64px; height: 64px; }
+    .vsl .play svg { width: 23px; height: 23px; }
+    /* the button wants clear air under the video, not the same gap as the rest */
+    .cta-btn { margin-top: 30px; padding: 16px 26px; font-size: 16px; }
   }
   /* the small handsets (SE, mini, 360px Androids) have up to 76px less live
      viewport at the same width, so they take a second step down. */
   @media (max-width: 380px) {
     .topbar .wrap { padding-top: 9px; padding-bottom: 9px; }
-    .hero { padding: 18px 0 28px; }
-    .hero h1 { font-size: 28px; line-height: 1.12; margin-top: 9px; }
-    .hero .sub { font-size: 15.5px; margin-top: 9px; }
-    .vsl { margin-top: 16px; max-width: 320px; gap: 8px; }
-    .vsl .play { width: 52px; height: 52px; }
-    .cta-btn { margin-top: 16px; padding: 14px 22px; font-size: 15px; }
+    .hero { padding: 12px 0 18px; }
+    .hero h1 { font-size: 26px; line-height: 1.12; margin-top: 9px; }
+    .hero .sub { font-size: 15px; margin-top: 9px; }
+    .vsl { margin-top: 14px; max-width: 300px; gap: 8px; }
+    .vsl .play { width: 50px; height: 50px; }
+    .cta-btn { margin-top: 20px; padding: 13px 22px; font-size: 15px; }
   }
   /* phone type floor: no reading text renders under 12px on a handset */
   @media (max-width: 640px) {
