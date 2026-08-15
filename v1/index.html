@@ -329,7 +329,8 @@
   .vc-leg-after { background: var(--blue); }
   .vc-leg-ring {
     width: 11px; height: 11px; border-radius: 50%; background: var(--navy);
-    box-shadow: 0 0 0 3px rgba(255,255,255,.9);
+    box-shadow: 0 0 0 3px rgba(255,255,255,.92), 0 0 0 5px rgba(255,255,255,.3);
+    margin-right: 3px;
   }
   .vc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
   @media (max-width: 620px) { .vc-grid { grid-template-columns: 1fr; } }
@@ -364,8 +365,14 @@
   .vc-dot { fill: var(--paper); stroke: #8ea4bb; stroke-width: 1.6; }
   .vc-dot-last { fill: var(--blue); stroke: var(--paper); stroke-width: 2; }
   .vc-entry-level { stroke: var(--navy); stroke-opacity: .38; stroke-width: 1; stroke-dasharray: 3 4; }
-  .vc-halo { fill: none; stroke: var(--navy); stroke-opacity: .16; stroke-width: 1.4; }
-  .vc-entry { fill: var(--navy); stroke: var(--paper); stroke-width: 2.4; }
+  .vc-halo { fill: none; stroke: var(--navy); stroke-opacity: .6; stroke-width: 2.8; }
+  .vc-entry { fill: var(--navy); stroke: var(--paper); stroke-width: 2.6; }
+  .vc-point-arrow { fill: none; stroke: var(--navy); stroke-opacity: .55; stroke-width: 1.7; stroke-linecap: round; }
+  .vc-point-head { fill: var(--navy); fill-opacity: .55; }
+  .vc-point-label {
+    font-size: 10.5px; font-weight: 700; fill: var(--navy); fill-opacity: .78;
+    font-family: inherit; letter-spacing: 0.02em;
+  }
   .vc-foot {
     display: flex; align-items: flex-end; gap: 10px;
     border-top: 1px solid var(--line); margin-top: 14px; padding-top: 13px;
@@ -386,7 +393,8 @@
   .vc-key { font-size: 9px; letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
   .vc-note { margin: 11px 0 0; font-size: 11.5px; line-height: 1.5; color: var(--muted); }
   .vc-disclosure {
-    margin: 30px auto 0; max-width: 92ch; font-size: 12px; line-height: 1.65; color: #8296bf; text-align: left;
+    margin: 30px 0 0; max-width: none; width: 100%;
+    font-size: 12px; line-height: 1.65; color: #8296bf; text-align: left;
   }
   .vc-disclosure strong { color: var(--band-muted); }
 /* valcharts:end */
@@ -670,8 +678,11 @@
         <circle class="vc-dot" cx="326.0" cy="32.2" r="3"><title>Aug 2026 &middot; $13.3B</title></circle>
         <circle class="vc-dot-last" cx="326.0" cy="32.2" r="4.6"/>
         <line class="vc-entry-level" x1="44" y1="96.7" x2="188.7" y2="96.7"/>
-        <circle class="vc-halo" cx="188.7" cy="96.7" r="10"/>
-        <circle class="vc-entry" cx="188.7" cy="96.7" r="5"/>
+        <circle class="vc-halo" cx="188.7" cy="96.7" r="14"/>
+        <circle class="vc-entry" cx="188.7" cy="96.7" r="5.6"/>
+        <path class="vc-point-arrow" d="M 230.7 139.7 Q 228.7 126.7 191.7 114.7"/>
+        <polygon class="vc-point-head" points="191.7,114.7 200.2,114.1 198.3,120.1"/>
+        <text class="vc-point-label" x="232.7" y="150.7" text-anchor="start">we got in</text>
         </svg>
         <div class="vc-foot">
           <div class="vc-cell"><div class="vc-figure">$8B</div><div class="vc-key">We got in</div></div>
@@ -696,8 +707,11 @@
         <circle class="vc-dot" cx="326.0" cy="32.2" r="3"><title>Aug 2026 &middot; $190B</title></circle>
         <circle class="vc-dot-last" cx="326.0" cy="32.2" r="4.6"/>
         <line class="vc-entry-level" x1="44" y1="100.3" x2="191.6" y2="100.3"/>
-        <circle class="vc-halo" cx="191.6" cy="100.3" r="10"/>
-        <circle class="vc-entry" cx="191.6" cy="100.3" r="5"/>
+        <circle class="vc-halo" cx="191.6" cy="100.3" r="14"/>
+        <circle class="vc-entry" cx="191.6" cy="100.3" r="5.6"/>
+        <path class="vc-point-arrow" d="M 233.6 143.3 Q 231.6 130.3 194.6 118.3"/>
+        <polygon class="vc-point-head" points="194.6,118.3 203.1,117.8 201.2,123.8"/>
+        <text class="vc-point-label" x="235.6" y="154.3" text-anchor="start">we got in</text>
         </svg>
         <div class="vc-foot">
           <div class="vc-cell"><div class="vc-figure">$110B</div><div class="vc-key">We got in</div></div>
@@ -722,8 +736,11 @@
         <circle class="vc-dot" cx="326.0" cy="32.2" r="3"><title>Feb 2026 &middot; $159B</title></circle>
         <circle class="vc-dot-last" cx="326.0" cy="32.2" r="4.6"/>
         <line class="vc-entry-level" x1="44" y1="112.6" x2="123.8" y2="112.6"/>
-        <circle class="vc-halo" cx="123.8" cy="112.6" r="10"/>
-        <circle class="vc-entry" cx="123.8" cy="112.6" r="5"/>
+        <circle class="vc-halo" cx="123.8" cy="112.6" r="14"/>
+        <circle class="vc-entry" cx="123.8" cy="112.6" r="5.6"/>
+        <path class="vc-point-arrow" d="M 165.8 155.6 Q 163.8 142.6 126.8 130.6"/>
+        <polygon class="vc-point-head" points="126.8,130.6 135.3,130.0 133.3,136.0"/>
+        <text class="vc-point-label" x="167.8" y="166.6" text-anchor="start">we got in</text>
         </svg>
         <div class="vc-foot">
           <div class="vc-cell"><div class="vc-figure">$80B</div><div class="vc-key">We got in</div></div>
@@ -751,8 +768,11 @@
         <circle class="vc-dot" cx="326.0" cy="32.2" r="3"><title>Jul 2026 &middot; $1.98T</title></circle>
         <circle class="vc-dot-last" cx="326.0" cy="32.2" r="4.6"/>
         <line class="vc-entry-level" x1="44" y1="145.0" x2="209.5" y2="145.0"/>
-        <circle class="vc-halo" cx="209.5" cy="145.0" r="10"/>
-        <circle class="vc-entry" cx="209.5" cy="145.0" r="5"/>
+        <circle class="vc-halo" cx="209.5" cy="145.0" r="14"/>
+        <circle class="vc-entry" cx="209.5" cy="145.0" r="5.6"/>
+        <path class="vc-point-arrow" d="M 167.5 168.0 Q 169.5 175.0 206.5 163.0"/>
+        <polygon class="vc-point-head" points="206.5,163.0 200.0,168.4 198.0,162.4"/>
+        <text class="vc-point-label" x="165.5" y="179.0" text-anchor="end">we got in</text>
         </svg>
         <div class="vc-foot">
           <div class="vc-cell"><div class="vc-figure">$600B</div><div class="vc-key">We got in</div></div>
