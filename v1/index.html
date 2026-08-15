@@ -96,12 +96,10 @@
   }
   .avail .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
   .avail strong { font-weight: 800; }
-  .avail .brk { display: none; }
-  /* phone: the line wraps, so centre both halves under each other beside the dot */
-  @media (max-width: 640px) {
-    .avail { width: 100%; justify-content: center; text-align: center; padding: 10px 16px; }
-    .avail .brk { display: inline; }
-  }
+  /* the line never wraps: on a narrow handset the pill steps down instead */
+  .avail { white-space: nowrap; }
+  @media (max-width: 640px) { .avail { font-size: 12.5px; padding: 8px 14px; gap: 7px; } }
+  @media (max-width: 370px) { .avail { font-size: 12px; padding: 7px 12px; gap: 6px; } }
 
   /* ---------- proof bar (under hero) ---------- */
   .statbar { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 0; }
@@ -470,7 +468,7 @@
       <div class="vsl-label">Watch: How You Get Into A Private Round &middot; 4 min</div>
     </div>
     <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-    <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong><br class="brk"> this month.</span></div>
+    <div class="avail"><span class="dot"></span><span>Available for <strong>10 new investors</strong> this month.</span></div>
   </div>
 </div>
 
@@ -677,7 +675,7 @@
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
     </div>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong><br class="brk"> this month.</span></div>
+      <div class="avail"><span class="dot"></span><span>Available for <strong>10 new investors</strong> this month.</span></div>
   </div>
 </section>
 
