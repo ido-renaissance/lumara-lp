@@ -96,6 +96,12 @@
   }
   .avail .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
   .avail strong { font-weight: 800; }
+  .avail .brk { display: none; }
+  /* phone: the line wraps, so centre both halves under each other beside the dot */
+  @media (max-width: 640px) {
+    .avail { width: 100%; justify-content: center; text-align: center; padding: 10px 16px; }
+    .avail .brk { display: inline; }
+  }
 
   /* ---------- proof bar (under hero) ---------- */
   .statbar { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 26px 0; }
@@ -110,24 +116,25 @@
   @media (max-width: 560px) { .proof-line { border-radius: var(--radius); padding: 16px 20px; } }
 
   /* ---------- portfolio logo strip (the one dark band) ---------- */
-  .holdings { background: var(--deep); color: var(--band-ink); text-align: center; padding: 60px 0 56px; }
+  /* light ground: the marks run in their own colours, and five of the eight are black */
+  .holdings { background: var(--pale); color: var(--ink); text-align: center; padding: 60px 0 56px;
+              border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .holdings h2 {
     font-weight: 800; font-size: clamp(1.3rem, 2.4vw, 1.75rem); letter-spacing: -0.015em;
-    color: var(--band-ink); margin: 0 0 34px;
+    color: var(--ink); margin: 0 0 34px;
   }
   /* every mark renders at one uniform cap height, so the wall reads as a single row */
-  .logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch; justify-items: stretch; }
-  @media (max-width: 760px) { .logos { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
-  /* each mark keeps its own colours, so it needs the white ground it was drawn for */
+  .logos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 26px; align-items: center; justify-items: center; }
+  @media (max-width: 760px) { .logos { grid-template-columns: repeat(2, 1fr); gap: 34px 20px; } }
+  /* every mark renders at one uniform cap height, so the wall reads as a single row */
   .logos img {
-    height: 72px; width: 100%; max-width: 100%; object-fit: contain;
-    background: var(--paper); border-radius: 10px; padding: 18px 22px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 26px; width: auto; max-width: 100%; object-fit: contain;
+    opacity: 0.92; transition: opacity 0.2s ease;
   }
-  .logos img:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.3); }
-  @media (max-width: 980px) { .logos img { height: 66px; padding: 16px 18px; } }
-  @media (max-width: 760px) { .logos img { height: 60px; padding: 14px 16px; } }
-  @media (max-width: 400px) { .logos img { height: 54px; padding: 12px 13px; } }
+  .logos img:hover { opacity: 1; }
+  @media (max-width: 980px) { .logos img { height: 22px; } }
+  @media (max-width: 760px) { .logos img { height: 24px; } }
+  @media (max-width: 400px) { .logos img { height: 20px; } }
 
   /* ---------- shared section chrome ---------- */
   section { padding: 76px 0; }
@@ -463,7 +470,7 @@
       <div class="vsl-label">Watch: How You Get Into A Private Round &middot; 4 min</div>
     </div>
     <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-    <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
+    <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong><br class="brk"> this month.</span></div>
   </div>
 </div>
 
@@ -670,7 +677,7 @@
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
     </div>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
+      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong><br class="brk"> this month.</span></div>
   </div>
 </section>
 

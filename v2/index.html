@@ -93,6 +93,12 @@
   }
   .avail .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
   .avail strong { font-weight: 800; }
+  .avail .brk { display: none; }
+  /* phone: the line wraps, so centre both halves under each other beside the dot */
+  @media (max-width: 640px) {
+    .avail { width: 100%; justify-content: center; text-align: center; padding: 10px 16px; }
+    .avail .brk { display: inline; }
+  }
 
   /* ---------- proof strip under the hero ---------- */
   .statbar { background: var(--pale); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(22px, 2.2vw, 32px) 0; }
@@ -102,24 +108,25 @@
   .proof-line .pct { color: var(--blue-dark); font-weight: 800; }
 
   /* ---------- portfolio logo strip ---------- */
-  .holdings { background: var(--navy); color: var(--band-ink); padding: clamp(46px, 4.4vw, 66px) 0; }
+  /* light ground: the marks run in their own colours, and five of the eight are black */
+  .holdings { background: var(--pale); color: var(--ink); padding: clamp(46px, 4.4vw, 66px) 0;
+              border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .holdings h2 {
     font-weight: 800; font-size: clamp(1.1rem, 1.7vw, 1.5rem); letter-spacing: 0.02em;
-    color: var(--band-muted); margin: 0 0 clamp(30px, 3vw, 44px); text-transform: uppercase;
+    color: var(--muted); margin: 0 0 clamp(30px, 3vw, 44px); text-transform: uppercase;
   }
   /* one uniform cap height, all eight across the full width */
-  .logos { display: grid; grid-template-columns: repeat(8, 1fr); gap: clamp(10px, 0.9vw, 16px); align-items: stretch; justify-items: stretch; }
+  .logos { display: grid; grid-template-columns: repeat(8, 1fr); gap: 40px 30px; align-items: center; justify-items: center; }
   @media (max-width: 1180px) { .logos { grid-template-columns: repeat(4, 1fr); } }
-  @media (max-width: 620px)  { .logos { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
-  /* each mark keeps its own colours, so it needs the white ground it was drawn for */
+  @media (max-width: 620px)  { .logos { grid-template-columns: repeat(2, 1fr); gap: 34px 20px; } }
+  /* one uniform cap height, all eight across the full width */
   .logos img {
-    height: clamp(60px, 5vw, 82px); width: 100%; max-width: 100%; object-fit: contain;
-    background: var(--paper); border-radius: 10px; padding: clamp(12px, 1.1vw, 20px) clamp(13px, 1.2vw, 22px);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: clamp(22px, 1.9vw, 28px); width: auto; max-width: 100%; object-fit: contain;
+    opacity: 0.92; transition: opacity 0.2s ease;
   }
-  .logos img:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.3); }
-  @media (max-width: 620px) { .logos img { height: 60px; padding: 14px 16px; } }
-  @media (max-width: 400px) { .logos img { height: 54px; padding: 12px 13px; } }
+  .logos img:hover { opacity: 1; }
+  @media (max-width: 620px) { .logos img { height: 24px; } }
+  @media (max-width: 400px) { .logos img { height: 20px; } }
 
   /* ---------- section chrome: head splits left/right on a rule ---------- */
   section { padding: clamp(58px, 6vw, 104px) 0; }
@@ -506,7 +513,7 @@
       <div class="vsl-label">Watch: How You Get Into A Private Round &middot; 4 min</div>
     </div>
     <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
-    <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
+    <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong><br class="brk"> this month.</span></div>
   </div>
 </div>
 
@@ -725,7 +732,7 @@
     <div class="center-cta reveal">
       <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
     </div>
-      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong> this month.</span></div>
+      <div class="avail"><span class="dot"></span><span>The fund is open to only <strong>5 new investors</strong><br class="brk"> this month.</span></div>
   </div>
 </section>
 
