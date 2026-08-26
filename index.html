@@ -9,7 +9,8 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101a38'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='38' font-weight='800' fill='%23ffffff' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
 <!-- META PIXEL: paste the Meta pixel base code here (same snippet on every page). The "Schedule" standard event fires ONLY on /confirm. -->
-<script src="https://embed.typeform.com/next/embed.js"></script>
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <title>Lumara Investment Partners · Pre-IPO Access for Accredited Investors</title>
 <!-- ============================================================
      LUMARA INVESTMENT PARTNERS LP — MAIN LANDING PAGE (universal page, all traffic)
@@ -987,7 +988,8 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
 
 <script>
   /* ====== SWAP-INS ====== */
-  var TYPEFORM_URL = "";   /* <-- paste booking / Typeform URL */
+  var CALENDLY_URL = "https://calendly.com/d/cyt6-fj4-nj7/discovery-call-with-collins-investment-partners";  /* <-- booking link opened as a popup iframe */
+  var POST_BOOKING_URL = "/confirmation-page/";  /* set "" to stay on the page after booking */
   var VSL_EMBED_URL = "";  /* <-- paste hosted VSL URL (or replace the #vsl div with your player embed) */
 
   /* dynamic message-match sub line (?a=access|corr|regret|list) */
@@ -1002,6 +1004,16 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
     if (a && lines[a]) document.getElementById("matchLine").textContent = lines[a];
   })();
 
+
+  /* Calendly -> confirmation page (Schedule pixel lives on that page) */
+  (function () {
+    window.addEventListener("message", function (e) {
+      if (!e.data || typeof e.data !== "object") return;
+      if (String(e.origin).indexOf("calendly.com") === -1) return;
+      if (e.data.event !== "calendly.event_scheduled") return;
+      if (POST_BOOKING_URL) window.location.href = POST_BOOKING_URL;
+    });
+  })();
   /* CTA + VSL placeholder wiring */
   (function () {
     var back = document.getElementById("modalBack");
@@ -1012,8 +1024,10 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
     back.addEventListener("click", function (e) { if (e.target === back) back.classList.remove("show"); });
     document.querySelectorAll("[data-book]").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        if (TYPEFORM_URL) { try { if (window.tf && window.tf.makePopup) { window.tf.makePopup(TYPEFORM_URL, { mode: "popup", autoClose: 3000 }).open(); } else { window.open(TYPEFORM_URL, "_blank"); } } catch (err) { window.open(TYPEFORM_URL, "_blank"); } }
-        else show("Booking Placeholder", "Set TYPEFORM_URL at the top of this file and every button on the page opens your application form.");
+        if (window.Calendly && window.Calendly.initPopupWidget) {
+          try { window.Calendly.initPopupWidget({ url: CALENDLY_URL }); return; } catch (err) {}
+        }
+        window.open(CALENDLY_URL, "_blank");   /* widget.js blocked -> new tab */
       });
     });
     var vsl = document.getElementById("vsl");
