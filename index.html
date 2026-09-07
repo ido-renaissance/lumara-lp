@@ -1068,6 +1068,8 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
       if (!e.data || typeof e.data !== "object") return;
       if (String(e.origin).indexOf("calendly.com") === -1) return;
       if (e.data.event !== "calendly.event_scheduled") return;
+      var p = e.data.payload || {};  /* opaque URIs only; the visit beacon on /confirmation-page/ carries the details once Calendly passes them */
+      if (window.__preipoBeacon) window.__preipoBeacon("booked-beacon", { invitee_uri: (p.invitee || {}).uri || "", event_uri: (p.event || {}).uri || "" });
       if (POST_BOOKING_URL) window.location.href = POST_BOOKING_URL;
     });
   })();
@@ -1145,6 +1147,21 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
     }, { threshold: 0.12 });
     document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
   })();
+</script>
+
+
+<!-- pre-IPO funnel beacon: counts visits + relays Calendly's pass-through query (confirmation page) to our worker. No UI, no cookies, no storage. -->
+<script>
+(function () {
+  var Q = new URLSearchParams(location.search), utm = {};
+  Q.forEach(function (v, k) { if (k.indexOf("utm_") === 0) utm[k] = v; });
+  window.__preipoBeacon = function (route, extra) {
+    var b = { path: location.pathname, referer: document.referrer, utm: utm, fbclid: Q.get("fbclid") || "", query: location.search, ts: Date.now() };
+    for (var k in extra) b[k] = extra[k];
+    try { navigator.sendBeacon("https://comms-orchestration.renaissance-84e.workers.dev/preipo/" + route, new Blob([JSON.stringify(b)], { type: "application/json" })); } catch (err) {}
+  };
+  window.__preipoBeacon("visit", {});
+})();
 </script>
 
 </body>
