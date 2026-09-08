@@ -19,9 +19,8 @@
        sans H1, stat bar under hero, white shadow cards, dark logo strip,
        blue rounded buttons. Single-theme light; sans throughout, serif reserved
        for the logotype and the pull quote.
-     TWO SWAP-INS ONLY:
-       1) VSL_EMBED_URL  — hosted video URL (or replace the #vsl block with your player embed)
-       2) TYPEFORM_URL   — booking/application form URL (opens on every CTA)
+     ONE SWAP-IN: the booking URL (CALENDLY_URL) — opens on every CTA.
+     The VSL is self-hosted in this folder: vsl-main.mp4 + vsl-main-poster.jpg.
      Dynamic message-match sub line: append ?a=access | corr | regret | list to the URL.
      ============================================================ -->
 <style>
@@ -70,15 +69,29 @@
   .hero .sub { color: var(--muted); font-size: 19.5px; max-width: 58ch; margin: 20px auto 0; }
   .vsl {
     margin: 34px auto 0; max-width: 720px; aspect-ratio: 16 / 9; background: var(--deep);
-    border-radius: var(--radius); box-shadow: var(--shadow); position: relative; display: flex;
-    flex-direction: column; align-items: center; justify-content: center; gap: 14px; cursor: pointer;
+    border-radius: var(--radius); box-shadow: var(--shadow); position: relative; overflow: hidden;
   }
+  .vsl video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; display: block; background: var(--deep);
+  }
+  .vsl.js-ready:not(.is-playing) { cursor: pointer; }
   .vsl .play {
-    width: 74px; height: 74px; border-radius: 50%; border: 2px solid var(--blue);
-    display: flex; align-items: center; justify-content: center;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 74px; height: 74px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.85);
+    background: rgba(16, 26, 56, 0.34); -webkit-appearance: none; appearance: none; padding: 0;
+    display: none; align-items: center; justify-content: center; cursor: pointer;
+    transition: transform 0.18s ease, background 0.18s ease;
   }
-  .vsl .play svg { margin-left: 5px; }
-  .vsl .vsl-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--band-muted); }
+  .vsl.js-ready .play { display: flex; }
+  .vsl.is-playing .play { display: none; }
+  .vsl .play::after {
+    content: ""; border-style: solid; border-color: transparent transparent transparent #fff;
+    border-width: 12px 0 12px 19px; margin-left: 5px;
+  }
+  .vsl .play:hover { transform: translate(-50%, -50%) scale(1.07); background: rgba(16, 26, 56, 0.5); }
+  .vsl .play:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+  .vsl-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin: 13px auto 0; }
   .cta-btn {
     display: inline-block; margin-top: 30px; background: var(--blue); color: var(--paper); text-decoration: none;
     font-family: inherit; font-size: 16px; font-weight: 700; letter-spacing: 0.02em; padding: 15px 30px;
@@ -345,7 +358,6 @@
   .modal p { font-size: 13.5px; color: var(--muted); margin: 0 0 20px; }
   .modal button { background: var(--navy); color: var(--paper); border: none; border-radius: 8px; padding: 10px 26px; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
   .modal button:focus-visible { outline: 3px solid var(--blue-dark); outline-offset: 2px; }
-  .vsl:focus-visible { outline: 3px solid var(--blue-dark); outline-offset: 3px; }
 
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.in { opacity: 1; transform: none; }
@@ -360,9 +372,9 @@
     .eyebrow { font-size: 12px; letter-spacing: 0.14em; }
     .hero h1 { font-size: 28px; line-height: 1.14; margin-top: 10px; }
     .hero .sub { font-size: 16.5px; line-height: 1.45; margin-top: 10px; }
-    .vsl { margin-top: 16px; gap: 9px; }
+    .vsl { margin-top: 16px; }
     .vsl .play { width: 58px; height: 58px; }
-    .vsl .play svg { width: 21px; height: 21px; }
+    .vsl .play::after { border-width: 10px 0 10px 16px; }
     /* the button wants clear air under the video, not the same gap as the rest */
     .cta-btn { margin-top: 24px; padding: 15px 24px; font-size: 16px; }
     .avail { margin-top: 11px; }
@@ -374,8 +386,9 @@
     .hero { padding: 10px 0 18px; }
     .hero h1 { font-size: 24px; line-height: 1.13; margin-top: 8px; }
     .hero .sub { font-size: 15px; margin-top: 8px; }
-    .vsl { margin-top: 10px; max-width: 288px; gap: 7px; }
+    .vsl { margin-top: 10px; max-width: 288px; }
     .vsl .play { width: 46px; height: 46px; }
+    .vsl .play::after { border-width: 8px 0 8px 13px; }
     .cta-btn { margin-top: 16px; padding: 12px 20px; font-size: 15px; }
     .avail { margin-top: 8px; }
   }
@@ -383,7 +396,7 @@
   @media (max-width: 640px) {
     .logo-sub { font-size: 11px; letter-spacing: 0.14em; }
     .topbar .trust { font-size: 12px; }
-    .vsl .vsl-label { font-size: 12px; }
+    .vsl-label { font-size: 12px; }
     .sec-eyebrow { font-size: 12px; letter-spacing: 0.16em; }
     .about-stats .k { font-size: 12px; letter-spacing: 0.11em; }
     .step .s-label { font-size: 12px; letter-spacing: 0.11em; }
@@ -529,10 +542,16 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
     <span class="eyebrow">For Verified Accredited Investors</span>
     <h1>Get Exclusive Access To Pre-IPO Companies Like <span class="accent">OpenAI</span> and <span class="accent">Anthropic</span> &mdash; Before They Go Public</h1>
     <p class="sub" id="matchLine">Invest in the private market like the big institutions do &mdash; from $25,000.</p>
-    <div class="vsl" id="vsl" role="button" tabindex="0" aria-label="Play video">
-      <div class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 4l14 8-14 8V4z" style="fill:var(--blue)"/></svg></div>
-      <div class="vsl-label">Watch: How You Get Into A Private Round &middot; 4 min</div>
+    <div class="vsl" id="vsl">
+      <video preload="metadata" playsinline webkit-playsinline controls
+             poster="vsl-main-poster.jpg"
+             title="How You Get Into A Private Round">
+        <source src="vsl-main.mp4" type="video/mp4">
+        Your browser can&rsquo;t play this video. <a href="vsl-main.mp4">Download it here</a>.
+      </video>
+      <button type="button" class="play" aria-label="Play video"></button>
     </div>
+    <div class="vsl-label">Watch: How You Get Into A Private Round &middot; 4 min</div>
     <button class="cta-btn" data-book>Book The 15-Minute Consultation</button>
     <div class="avail"><span class="dot"></span><span>Available for <strong>6 new investors</strong> this month.</span></div>
     <div class="partner"><span class="pl">In partnership with</span><svg class="cip" viewBox="0 0 413 120" role="img" aria-label="Collins Investment Partners LP"><use href="#cip-logo"/></svg></div>
@@ -1048,7 +1067,6 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
   /* ====== SWAP-INS ====== */
   var CALENDLY_URL = "https://calendly.com/d/cyt6-fj4-nj7/discovery-call-with-collins-investment-partners";  /* <-- booking link opened as a popup iframe */
   var POST_BOOKING_URL = "/confirmation-page/";  /* set "" to stay on the page after booking */
-  var VSL_EMBED_URL = "";  /* <-- paste hosted VSL URL (or replace the #vsl div with your player embed) */
 
   /* dynamic message-match sub line (?a=access|corr|regret|list) */
   (function () {
@@ -1128,13 +1146,37 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
         window.open(CALENDLY_URL, "_blank");   /* widget.js blocked -> new tab */
       });
     });
-    var vsl = document.getElementById("vsl");
-    function playVsl() {
-      if (VSL_EMBED_URL) { window.open(VSL_EMBED_URL, "_blank"); }
-      else show("VSL Placeholder", "Upload the VSL (Universal 1 “The Plumbing” — script already written) and set VSL_EMBED_URL, or replace the #vsl block with your player embed.");
+  })();
+
+  /* Self-hosted VSL: poster frame + our play button, then the browser's own
+     controls from first play. With JS off the plain <video controls> still works. */
+  (function () {
+    var slot = document.getElementById("vsl");
+    if (!slot) return;
+    var video = slot.querySelector("video");
+    var btn = slot.querySelector(".play");
+    if (!video || !btn) return;
+
+    video.controls = false;
+    slot.classList.add("js-ready");
+
+    function start() {
+      slot.classList.add("is-playing");
+      video.controls = true;
+      var p = video.play();
+      if (p && typeof p.catch === "function") { p.catch(function () {}); }
     }
-    vsl.addEventListener("click", playVsl);
-    vsl.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playVsl(); } });
+
+    slot.addEventListener("click", function (e) {
+      if (slot.classList.contains("is-playing")) return;
+      e.preventDefault();
+      start();
+    });
+
+    video.addEventListener("play", function () {
+      slot.classList.add("is-playing");
+      video.controls = true;
+    });
   })();
 
   /* scroll reveal (respects reduced motion) */
