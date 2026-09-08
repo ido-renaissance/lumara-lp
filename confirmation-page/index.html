@@ -71,17 +71,26 @@
     background:var(--vid); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:13px;
   }
-  .vid[data-embed=""]{display:none}
-  .vid iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
-  .vid .play{
-    width:66px; height:66px; border-radius:50%; border:2px solid rgba(255,255,255,.85);
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  .vid video{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; display:block; background:var(--vid);
   }
+  .vid.js-ready:not(.is-playing){cursor:pointer}
+  .vid .play{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:66px; height:66px; border-radius:50%; border:2px solid rgba(255,255,255,.85);
+    background:rgba(16,26,56,.34); -webkit-appearance:none; appearance:none; padding:0;
+    display:none; align-items:center; justify-content:center; cursor:pointer;
+    transition:transform .18s ease, background .18s ease;
+  }
+  .vid.js-ready .play{display:flex}
+  .vid.is-playing .play{display:none}
   .vid .play::after{
     content:""; border-style:solid; border-color:transparent transparent transparent #fff;
     border-width:11px 0 11px 17px; margin-left:5px;
   }
-  .vid .cap{font-size:10px; letter-spacing:.19em; text-transform:uppercase; color:var(--band-muted); text-align:center; padding:0 16px; line-height:1.6}
+  .vid .play:hover{transform:translate(-50%,-50%) scale(1.07); background:rgba(16,26,56,.5)}
+  .vid .play:focus-visible{outline:3px solid #fff; outline-offset:4px}
 
   /* ---------- hero ---------- */
   .hero{background:var(--paper); text-align:center; padding:56px 0 52px}
@@ -426,9 +435,14 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
   <div class="booked"><span class="dot"></span>Confirmed with Collins Investment Partners. Your invite is on its way.</div>
   <span class="eyebrow">Start here</span>
   <h1>You&rsquo;re in. On this call, we&rsquo;ll go over how you can get access to <span class="accent">exclusive pre-IPO opportunities before they go public</span>.</h1>
-  <div class="vid" data-embed="">
-    <div class="play"></div>
-    <div class="cap">Video placeholder - replace with client video - target 90 to 150s</div>
+  <div class="vid">
+    <video preload="metadata" playsinline webkit-playsinline controls
+           poster="vsl-thank-you-poster.jpg"
+           title="A quick note before your call">
+      <source src="vsl-thank-you.mp4" type="video/mp4">
+      Your browser can&rsquo;t play this video. <a href="vsl-thank-you.mp4">Download it here</a>.
+    </video>
+    <button type="button" class="play" aria-label="Play video"></button>
   </div>
   <p class="sub">15 minutes, nothing to prepare and nothing to sign. You will be shown which companies have room in them right now, the research behind each one, and exactly how a position works. Everything below is the short version, so the call itself gets spent on your situation.</p>
 
@@ -897,20 +911,33 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
 <script>if (typeof fbq === "function") { fbq("track", "Schedule"); }</script>
 
 <script>
-  /* Drop a video URL into data-embed on the .vid slot and the placeholder
-     is replaced by the iframe. Nothing else on the page needs editing. */
-  document.querySelectorAll('.vid[data-embed]').forEach(function (slot) {
-    var src = (slot.getAttribute('data-embed') || '').trim();
-    if (!src) { slot.style.display = 'none'; return; }
-    slot.style.display = '';
-    var f = document.createElement('iframe');
-    f.src = src;
-    f.loading = 'lazy';
-    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
-    f.allowFullscreen = true;
-    f.title = 'Pre-IPO Discovery Call video';
-    slot.innerHTML = '';
-    slot.appendChild(f);
+  /* Self-hosted video: poster frame + our play button, then the browser's own
+     controls from first play. With JS off the plain <video controls> still works. */
+  document.querySelectorAll('.vid').forEach(function (slot) {
+    var video = slot.querySelector('video');
+    var btn = slot.querySelector('.play');
+    if (!video || !btn) return;
+
+    video.controls = false;
+    slot.classList.add('js-ready');
+
+    function start() {
+      slot.classList.add('is-playing');
+      video.controls = true;
+      var p = video.play();
+      if (p && typeof p.catch === 'function') { p.catch(function () {}); }
+    }
+
+    slot.addEventListener('click', function (e) {
+      if (slot.classList.contains('is-playing')) return;
+      e.preventDefault();
+      start();
+    });
+
+    video.addEventListener('play', function () {
+      slot.classList.add('is-playing');
+      video.controls = true;
+    });
   });
 </script>
 
