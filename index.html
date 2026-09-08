@@ -1151,7 +1151,7 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
 </script>
 
 
-<!-- pre-IPO funnel beacon: counts visits + relays Calendly's pass-through query (confirmation page) to our worker. No UI, no cookies, no storage. -->
+<!-- pre-IPO funnel beacon: counts visits + relays Calendly's pass-through query (confirmation page) to our worker. No UI, no cookies, no storage. Body is text/plain so sendBeacon needs no CORS preflight (browsers drop application/json beacons). -->
 <script>
 (function () {
   var Q = new URLSearchParams(location.search), utm = {};
@@ -1159,7 +1159,7 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
   window.__preipoBeacon = function (route, extra) {
     var b = { path: location.pathname, referer: document.referrer, utm: utm, fbclid: Q.get("fbclid") || "", query: location.search, ts: Date.now() };
     for (var k in extra) b[k] = extra[k];
-    try { navigator.sendBeacon("https://comms-orchestration.renaissance-84e.workers.dev/preipo/" + route, new Blob([JSON.stringify(b)], { type: "application/json" })); } catch (err) {}
+    try { navigator.sendBeacon("https://comms-orchestration.renaissance-84e.workers.dev/preipo/" + route, new Blob([JSON.stringify(b)], { type: "text/plain" })); } catch (err) {}
   };
   window.__preipoBeacon("visit", {});
 })();
