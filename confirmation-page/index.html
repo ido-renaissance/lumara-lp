@@ -908,7 +908,20 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
 
 <!-- Qualified confirmation page: Schedule fires here and ONLY here.
      The unqualified twin at /confirm-1/ must not contain this line. -->
-<script>if (typeof fbq === "function") { fbq("track", "Schedule"); }</script>
+<script>
+  /* Once per booking, not once per page load: a refresh or a back-button
+     return to this URL must not report a second conversion to Meta. If
+     sessionStorage is unavailable we fall through and fire -- better to
+     count twice than to miss the booking. */
+  (function () {
+    if (typeof fbq !== "function") return;
+    try {
+      if (sessionStorage.getItem("lp_schedule_fired")) return;
+      sessionStorage.setItem("lp_schedule_fired", "1");
+    } catch (e) {}
+    fbq("track", "Schedule");
+  })();
+</script>
 
 <script>
   /* Self-hosted video: poster frame + our play button, then the browser's own
