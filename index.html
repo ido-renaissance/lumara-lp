@@ -64,7 +64,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;o
 .logo-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:5px}
 .top .reg{margin-left:auto;display:flex;align-items:center;gap:8px;color:var(--dim)}
 .top .reg svg{width:15px;height:15px;color:var(--green)}
-.top .btn{margin-left:auto;padding:13px 20px;font-size:14.5px}
+.top .wrap{max-width:none;padding:0 40px}
+.top .btn{margin-left:auto;padding:12px 20px;font-size:14.5px;color:var(--ink);background:rgba(4,6,11,.25);border:1.5px solid var(--flame);box-shadow:none;backdrop-filter:blur(6px)}
+.top .btn:hover{background:rgba(90,170,240,.12);box-shadow:none}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:min(100svh,980px);display:flex;flex-direction:column;isolation:isolate;overflow:hidden;padding-top:76px}
@@ -97,9 +99,19 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;o
 .vsl .play{position:absolute;left:50%;top:50%;width:88px;height:88px;margin:-44px 0 0 -44px;border-radius:50%;background:rgba(90,170,240,.95);display:grid;place-items:center;box-shadow:0 0 0 14px rgba(90,170,240,.18),0 20px 50px rgba(0,0,0,.5);transition:transform .25s;z-index:1}
 .vsl .play::before{content:"";border-style:solid;border-width:14px 0 14px 23px;border-color:transparent transparent transparent #fff;margin-left:6px}
 .vsl:hover .play{transform:scale(1.07)}
-.vsl.is-playing .play{display:none}
+.vsl.is-playing .play,.vsl.muted-auto .play{display:none}
+.vsl.has-sound.paused .play{display:grid}
+.vprog{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.14);z-index:2;pointer-events:none}
+.vprog i{display:block;height:100%;background:linear-gradient(90deg,var(--flame-2),var(--flame));transform-origin:0 50%;transform:scaleX(0);transition:transform .3s linear}
+.vsound{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;align-items:center;gap:14px;padding:16px 22px;border-radius:16px;background:rgba(4,6,11,.8);backdrop-filter:blur(8px);border:1px solid rgba(90,170,240,.55);color:#fff;font:500 13px var(--display);text-align:left;z-index:3;box-shadow:0 20px 50px rgba(0,0,0,.5);animation:pulse 2.2s ease-in-out infinite}
+.vsound svg{width:30px;height:30px;flex-shrink:0;color:var(--flame)}
+.vsound b{display:block;font-size:17px;font-weight:600;margin-top:2px}
+.vsl.muted-auto .vsound{display:flex}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(90,170,240,.12),0 20px 50px rgba(0,0,0,.5)}}
 .vsl-cap{display:flex;justify-content:space-between;align-items:center;margin-top:16px;color:var(--dim)}
 .vsl-cap b{color:var(--ink-2);font-weight:500}
+.vsl-cap span{min-width:0;max-width:100%;flex:1 1 auto}
+.vsl-cap b{white-space:normal}
 
 /* logo wall */
 .wall{position:relative;border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(7,11,20,.2),rgba(7,11,20,.75));backdrop-filter:blur(6px)}
@@ -144,6 +156,8 @@ h2.h{margin-top:20px;font-weight:700;font-variation-settings:"wdth" 110;font-siz
 .book li i{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(90,170,240,.1);color:var(--flame);font:500 13px var(--mono);font-style:normal}
 .book li b{display:block;font-weight:600;font-size:16.5px}
 .book li span{color:var(--dim);font-size:15px}
+.cal-alt{text-align:right;max-width:var(--wrap);margin:14px auto 0;padding:0 32px;color:var(--faint);font-size:11px}
+.cal-alt button{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;font:inherit;letter-spacing:inherit;text-transform:inherit}
 .cal-card{position:relative;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 60px 140px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.08);min-height:700px}
 .cal-mount{height:700px}
 .cal-mount iframe{height:700px!important}
@@ -320,7 +334,7 @@ footer .legal strong{color:var(--dim)}
   body{font-size:16.5px}
   .wrap{padding:0 18px}
   section{padding:90px 0}
-  .top .wrap{height:64px;gap:12px}
+  .top .wrap{height:64px;gap:12px;padding:0 18px}
   .top .reg{display:none}
   .top .btn{margin-left:auto;padding:11px 16px;font-size:13.5px}
   .logo-mark{width:28px;height:28px}.logo-name{font-size:19px}.logo-sub{font-size:8.5px}
@@ -416,7 +430,7 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
     <div>
       <span class="eyebrow mono load l1"><i></i>Pre-IPO access · From $25,000</span>
       <h1 id="h1" class="load l2">Get into companies like OpenAI and Anthropic <span class="serif flame-text">before they go public.</span></h1>
-      <p class="lede load l3" id="matchLine">We buy institutional blocks in late-stage private rounds and open them to accredited investors. Same round, same price, same terms as the institutions beside us.</p>
+      <p class="lede load l3" id="matchLine">The biggest gains in companies like these happen before they go public. We invest early, alongside the big firms, and let you in from $25,000. Same shares, same price.</p>
       <div class="acts load l4">
         <button class="btn" data-book>Book your 15-minute consultation <span class="arr">→</span></button>
         <span class="avail"><span class="dot"></span><span>Available for <strong>6 new investors</strong> this month.</span></span>
@@ -430,8 +444,8 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
       <div class="lab mono">Our investors got into<b>Companies you already know</b><span class="tm">Trademarks of their owners. No affiliation or endorsement.</span></div>
       <div class="marquee" aria-label="Companies our investors got into">
         <div class="track">
-          <div class="logos"><img class="" src="assets/logos/spacex.svg" alt="SpaceX" style="--h:22.9px" decoding="async"><img class="" src="assets/logos/openai.svg" alt="OpenAI" style="--h:32.8px" decoding="async"><img class="" src="assets/logos/anthropic.svg" alt="Anthropic" style="--h:20.9px" decoding="async"><img class="" src="assets/logos/stripe.svg" alt="Stripe" style="--h:35.6px" decoding="async"><img class="" src="assets/logos/neuralink.svg" alt="Neuralink" style="--h:43.0px" decoding="async"><img class="" src="assets/logos/anduril.svg" alt="Anduril" style="--h:26.0px" decoding="async"><img class="" src="assets/logos/databricks.svg" alt="Databricks" style="--h:39.4px" decoding="async"><img class="" src="assets/logos/kalshi.svg" alt="Kalshi" style="--h:28.9px" decoding="async"></div>
-          <div class="logos" aria-hidden="true"><img class="" src="assets/logos/spacex.svg" alt="SpaceX" style="--h:22.9px" decoding="async"><img class="" src="assets/logos/openai.svg" alt="OpenAI" style="--h:32.8px" decoding="async"><img class="" src="assets/logos/anthropic.svg" alt="Anthropic" style="--h:20.9px" decoding="async"><img class="" src="assets/logos/stripe.svg" alt="Stripe" style="--h:35.6px" decoding="async"><img class="" src="assets/logos/neuralink.svg" alt="Neuralink" style="--h:43.0px" decoding="async"><img class="" src="assets/logos/anduril.svg" alt="Anduril" style="--h:26.0px" decoding="async"><img class="" src="assets/logos/databricks.svg" alt="Databricks" style="--h:39.4px" decoding="async"><img class="" src="assets/logos/kalshi.svg" alt="Kalshi" style="--h:28.9px" decoding="async"></div>
+          <div class="logos"><img class="" src="assets/logos/spacex.svg" alt="SpaceX" style="--h:22.9px" decoding="async"><img class="" src="assets/logos/openai.svg" alt="OpenAI" style="--h:32.8px" decoding="async"><img class="" src="assets/logos/anthropic.svg" alt="Anthropic" style="--h:20.9px" decoding="async"><img class="" src="assets/logos/thinkingmachines.png" alt="Thinking Machines" style="--h:39.5px" decoding="async"><img class="" src="assets/logos/stripe.svg" alt="Stripe" style="--h:35.6px" decoding="async"><img class="" src="assets/logos/neuralink.svg" alt="Neuralink" style="--h:43.0px" decoding="async"><img class="" src="assets/logos/openevidence.svg" alt="OpenEvidence" style="--h:25.8px" decoding="async"><img class="" src="assets/logos/anduril.svg" alt="Anduril" style="--h:26.0px" decoding="async"><img class="" src="assets/logos/databricks.svg" alt="Databricks" style="--h:39.4px" decoding="async"><img class="" src="assets/logos/kalshi.svg" alt="Kalshi" style="--h:28.9px" decoding="async"></div>
+          <div class="logos" aria-hidden="true"><img class="" src="assets/logos/spacex.svg" alt="SpaceX" style="--h:22.9px" decoding="async"><img class="" src="assets/logos/openai.svg" alt="OpenAI" style="--h:32.8px" decoding="async"><img class="" src="assets/logos/anthropic.svg" alt="Anthropic" style="--h:20.9px" decoding="async"><img class="" src="assets/logos/thinkingmachines.png" alt="Thinking Machines" style="--h:39.5px" decoding="async"><img class="" src="assets/logos/stripe.svg" alt="Stripe" style="--h:35.6px" decoding="async"><img class="" src="assets/logos/neuralink.svg" alt="Neuralink" style="--h:43.0px" decoding="async"><img class="" src="assets/logos/openevidence.svg" alt="OpenEvidence" style="--h:25.8px" decoding="async"><img class="" src="assets/logos/anduril.svg" alt="Anduril" style="--h:26.0px" decoding="async"><img class="" src="assets/logos/databricks.svg" alt="Databricks" style="--h:39.4px" decoding="async"><img class="" src="assets/logos/kalshi.svg" alt="Kalshi" style="--h:28.9px" decoding="async"></div>
         </div>
       </div>
     </div>
@@ -462,7 +476,7 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
           <button type="button" class="play" aria-label="Play video"></button>
         </div>
       </div>
-      <div class="vsl-cap mono"><span>Watch: <b>How you get into a private round</b></span><span>4 min</span></div>
+      <div class="vsl-cap mono"><span>Watch: <b>How you get into a private round</b></span></div>
     </div>
   </div>
 </section>
@@ -487,6 +501,7 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
       </div>
     </div>
   </div>
+  <p class="cal-alt mono"><span>Calendar not loading?</span> <button type="button" data-book>Open it in a new window</button></p>
 </section>
 
 <section class="stories-sec" aria-labelledby="h-stories" style="padding-top:40px">
@@ -678,10 +693,10 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
   /* dynamic message-match sub line (?a=access|corr|regret|list) */
   (function () {
     var lines = {
-      access: "There’s no $25,000 door into a private round. We built one, from $25,000.",
-      corr:   "Priced by the next funding round, not by the daily tape. From $25,000.",
-      regret: "By the time the ticker appears, the private price is history. Get in from $25,000.",
-      list:   "One written page per company, walked through on a 15-minute consultation. From $25,000."
+      access: "Most people can’t get into private companies like these. We open the door from $25,000.",
+      corr:   "Private companies are not on the stock market, so their price only moves when they raise money. Get in from $25,000.",
+      regret: "By the time a company goes public, the early price is gone. Get in before that, from $25,000.",
+      list:   "One page per company, explained on a free 15-minute call. Get in from $25,000."
     };
     var a = new URLSearchParams(location.search).get("a");
     if (a && lines[a]) document.getElementById("matchLine").textContent = lines[a];
@@ -755,35 +770,58 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
     });
   })();
 
-  /* Self-hosted VSL: poster frame + our play button, then the browser's own
-     controls from first play. With JS off the plain <video controls> still works. */
+  /* [2026-10-14] VSL player: autoplays muted when in view, click turns sound on from the start.
+     No seeking, no duration shown, and a progress bar that runs fast early and slows later. */
   (function () {
     var slot = document.getElementById("vsl");
     if (!slot) return;
-    var video = slot.querySelector("video");
-    var btn = slot.querySelector(".play");
-    if (!video || !btn) return;
-
-    video.controls = false;
+    var v = slot.querySelector("video");
+    if (!v) return;
+    v.controls = false; v.removeAttribute("controls");
+    v.setAttribute("controlslist", "nodownload noplaybackrate noremoteplayback nofullscreen");
+    v.disablePictureInPicture = true; v.playsInline = true;
     slot.classList.add("js-ready");
-
-    function start() {
-      slot.classList.add("is-playing");
-      video.controls = true;
-      var p = video.play();
-      if (p && typeof p.catch === "function") { p.catch(function () {}); }
+    var bar = document.createElement("div"); bar.className = "vprog"; bar.innerHTML = "<i></i>"; slot.appendChild(bar);
+    var fill = bar.firstChild;
+    var hint = document.createElement("button"); hint.type = "button"; hint.className = "vsound";
+    hint.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M23 9l-6 6M17 9l6 6"/></svg><span>Your video is playing<b>Click to turn on sound</b></span>';
+    slot.appendChild(hint);
+    var maxT = 0, sound = false;
+    function prog() {
+      var d = v.duration; if (!d || !isFinite(d)) return;
+      var x = Math.min(1, v.currentTime / d);
+      fill.style.transform = "scaleX(" + (1 - Math.pow(1 - x, 2.6)).toFixed(4) + ")";
     }
-
+    v.addEventListener("timeupdate", function () { if (!v.seeking && v.currentTime > maxT) maxT = v.currentTime; prog(); });
+    v.addEventListener("seeking", function () { if (v.currentTime > maxT + 0.6) v.currentTime = maxT; });
+    v.addEventListener("ratechange", function () { if (v.playbackRate !== 1) v.playbackRate = 1; });
+    v.addEventListener("pause", function () { slot.classList.add("paused"); });
+    v.addEventListener("play", function () { slot.classList.remove("paused"); });
+    function play() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    slot.addEventListener("contextmenu", function (e) { e.preventDefault(); });
     slot.addEventListener("click", function (e) {
-      if (slot.classList.contains("is-playing")) return;
       e.preventDefault();
-      start();
+      if (!sound) {
+        sound = true;
+        if (slot.classList.contains("muted-auto")) { v.currentTime = 0; maxT = 0; }
+        v.muted = false; slot.classList.remove("muted-auto"); slot.classList.add("is-playing", "has-sound");
+        play(); return;
+      }
+      if (v.ended) { v.currentTime = 0; maxT = 0; }
+      if (v.paused) play(); else v.pause();
     });
-
-    video.addEventListener("play", function () {
-      slot.classList.add("is-playing");
-      video.controls = true;
-    });
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) {
+        en.forEach(function (e) {
+          if (sound) return;
+          if (e.isIntersecting) {
+            v.muted = true;
+            var p = v.play();
+            if (p && p.then) p.then(function () { slot.classList.add("muted-auto"); }).catch(function () {});
+          } else if (!v.paused) { v.pause(); }
+        });
+      }, { threshold: 0.5 }).observe(slot);
+    }
   })();
 
   /* scroll reveal (respects reduced motion) */
