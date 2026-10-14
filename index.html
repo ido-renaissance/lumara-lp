@@ -773,7 +773,7 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
   })();
 
   /* [2026-10-14] VSL player: autoplays muted when in view, click turns sound on from the start.
-     No seeking, no duration shown, and a progress bar that runs fast early and slows later. */
+     No seeking, no duration shown, and a progress bar that runs fast early and slows later (x^0.3 on a 4:29 video: ~50% at 0:30, ~72% at 1:30). */
   (function () {
     var slot = document.getElementById("vsl");
     if (!slot) return;
@@ -792,7 +792,7 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
     function prog() {
       var d = v.duration; if (!d || !isFinite(d)) return;
       var x = Math.min(1, v.currentTime / d);
-      fill.style.transform = "scaleX(" + (1 - Math.pow(1 - x, 2.6)).toFixed(4) + ")";
+      fill.style.transform = "scaleX(" + Math.pow(x, 0.3).toFixed(4) + ")";
     }
     v.addEventListener("timeupdate", function () { if (!v.seeking && v.currentTime > maxT) maxT = v.currentTime; prog(); });
     v.addEventListener("seeking", function () { if (v.currentTime > maxT + 0.6) v.currentTime = maxT; });
