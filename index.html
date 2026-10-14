@@ -304,7 +304,7 @@ footer .legal strong{color:var(--dim)}
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
   .hero-main{padding-top:56px}
-  .hero-bg img{left:0;width:100%;object-position:58% 40%}
+  .hero-bg img{left:34%;width:110%;object-position:50% 40%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
   .hero::before{background:linear-gradient(180deg,rgba(4,6,11,.6) 0%,rgba(4,6,11,.35) 30%,rgba(4,6,11,.75) 70%,var(--void) 100%)}
   .wall .wrap{grid-template-columns:minmax(0,1fr);gap:18px}
   .stats .wrap{grid-template-columns:repeat(3,1fr)}
@@ -323,6 +323,8 @@ footer .legal strong{color:var(--dim)}
   .top .btn{margin-left:auto;padding:11px 16px;font-size:13.5px}
   .logo-mark{width:28px;height:28px}.logo-name{font-size:19px}.logo-sub{font-size:8.5px}
   .hero{padding-top:64px;min-height:0}
+  .hero-bg img{left:46%;width:100%;object-position:50% 40%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
+  .vsl-cap{gap:16px}.vsl-cap>span:last-child{flex-shrink:0}
   .hero-main{padding-top:36px;padding-bottom:34px}
   .hero h1{font-size:clamp(38px,11vw,52px)}
   .hero .lede{font-size:17px}
@@ -467,7 +469,7 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
   <div class="wrap grid">
     <div class="sec-head">
       <span class="tlabel mono rv">Step one</span>
-      <h2 class="h rv" id="h-book">Book your free <span class="serif flame-text">15-minute</span> consultation</h2>
+      <h2 class="h rv" id="h-book">Book your free <span class="serif flame-text" style="white-space:nowrap">15-minute</span> consultation</h2>
       <p class="rv d1">Accreditation verified, the memo on what we have room in, and answers to whatever you want to ask. No pitch, and nothing committed.</p>
       <ul>
         <li class="rv d1"><i>01</i><div><b>Pick a time that suits you</b><span>Fifteen minutes on the phone or video.</span></div></li>
