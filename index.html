@@ -178,6 +178,10 @@ h2.h{margin-top:20px;font-weight:700;font-variation-settings:"wdth" 110;font-siz
 .story.wide .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.05);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
 .story.wide:hover .img img{transform:scale(1.1)}
 .story.wide .img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--panel) 0%,rgba(11,17,29,.2) 40%,rgba(11,17,29,0))}
+.story.wide.flip{grid-template-columns:.9fr 1.1fr}
+.story.wide.flip .img img{object-position:50% 22%}
+.story.wide.flip .img::after{background:linear-gradient(270deg,var(--panel) 0%,rgba(11,17,29,.35) 40%,rgba(11,17,29,.1)),linear-gradient(0deg,rgba(11,17,29,.7),transparent 35%),linear-gradient(180deg,rgba(11,17,29,.75),transparent 28%)}
+.story .credit{position:absolute;left:16px;bottom:12px;z-index:1;font-size:9px;letter-spacing:.06em;text-transform:none;color:rgba(195,202,216,.55)}
 .s-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px}
 .s-logo{height:var(--h,30px);width:auto;filter:brightness(0) invert(1)}
 .s-word{font-weight:700;font-variation-settings:"wdth" 125;letter-spacing:.24em;font-size:19px;color:#fff}
@@ -363,6 +367,9 @@ footer .legal strong{color:var(--dim)}
   .story{padding:26px}
   .story.wide{grid-template-columns:minmax(0,1fr)}
   .story.wide .img{height:260px;order:-1}
+  .story.wide.flip{grid-template-columns:minmax(0,1fr)}
+  .story.wide.flip .img{height:340px}
+  .story.wide.flip .img::after{background:linear-gradient(0deg,var(--panel) 0%,rgba(11,17,29,0) 55%)}
   .story.wide .img::after{background:linear-gradient(0deg,var(--panel) 0%,rgba(11,17,29,0) 60%)}
   .story.wide .txt{padding:26px}
   .s-facts{grid-template-columns:repeat(2,1fr)}
@@ -543,14 +550,16 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
   <p>He came in on the August 2025 round at a $6.8 billion valuation. In September 2026 Cohere was reported to be in talks to raise at about $20 billion. Not closed, not a return, and nobody should expect it to repeat.</p>
   <div class="s-facts"><div><span class="mono">Entered</span>Aug 2025 at $6.8B</div><div><span class="mono">Reported talks</span>Sep 2026 at ~$20B</div><div><span class="mono">Status</span>Private</div></div>
 </article>
-<article class="story wide rv" style="--glow:rgba(143,193,255,.12);display:block;padding:44px;min-height:0">
-  <div class="s-top"><span class="s-word">PROMETHEUS</span><span class="s-pill mono">Held · Private</span></div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px 48px;align-items:end">
-    <div><div class="s-big">$41B</div><div class="s-cap mono">Valuation at entry · Jun 2026</div></div>
-    <div><h3>He signed the same paper JPMorgan and BlackRock signed.</h3>
-    <p>Jeff Bezos’s new AI company raised $12 billion at a $41 billion valuation in June 2026, while OpenAI and Anthropic were already valued near $900 billion. Same terms, same valuation, as the banks in the round. We buy the block; you take a piece of ours.</p></div>
+<article class="story wide flip rv" style="--glow:rgba(143,193,255,.12)">
+  <div class="img"><picture><source srcset="assets/img/bezos.webp" type="image/webp"><img src="assets/img/bezos.jpg" alt="Jeff Bezos speaking on stage" loading="lazy" width="1100" height="1278"></picture><span class="credit mono">Jeff Bezos. U.S. Air Force photo, public domain. No endorsement implied.</span></div>
+  <div class="txt">
+    <div class="s-top"><span class="s-word">PROMETHEUS</span><span class="s-pill mono">Held · Private</span></div>
+    <div class="s-big">$41B</div>
+    <div class="s-cap mono">Valuation at entry · Jun 2026</div>
+    <h3>He signed the same paper JPMorgan and BlackRock signed.</h3>
+    <p>Jeff Bezos’s new AI company raised $12 billion at a $41 billion valuation in June 2026, while OpenAI and Anthropic were already valued near $900 billion. Same terms, same valuation, as the banks in the round. We buy the block; you take a piece of ours.</p>
+    <div class="s-facts"><div><span class="mono">Entry valuation</span>$41 billion</div><div><span class="mono">Alongside</span>JPMorgan, BlackRock, Goldman Sachs</div><div><span class="mono">Status</span>Private</div></div>
   </div>
-  <div class="s-facts"><div><span class="mono">Entry valuation</span>$41 billion</div><div><span class="mono">Alongside</span>JPMorgan, BlackRock, Goldman Sachs</div><div><span class="mono">Status</span>Private</div></div>
 </article></div>
     <p class="fine rv">*Individual examples, not a representative sample of all positions. Unless marked listed, figures are unrealized paper marks, not money paid to anyone and not a guarantee. Some investors have lost money. <a href="/disclosures/">Full disclosures</a>.</p>
     <div class="cta-row rv"><button class="btn" data-book>Book your 15-minute consultation <span class="arr">→</span></button></div>
