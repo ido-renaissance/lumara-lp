@@ -9,7 +9,9 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://lumaralp.com/assets/img/launch-wide.jpg">
 <meta name="theme-color" content="#05070c">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101a38'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='38' font-weight='800' fill='%23ffffff' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" as="image" href="assets/img/launch-wide.webp" media="(min-width: 761px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/img/launch-tall.webp" media="(max-width: 760px)" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,8 +45,9 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* ---------- buttons ---------- */
-.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:18px 30px;border-radius:999px;font:600 16.5px/1 var(--display);font-variation-settings:"wdth" 108;letter-spacing:.01em;color:#fff;background:linear-gradient(180deg,#8cc6ff,var(--flame) 55%,#3d8ee0);box-shadow:0 0 0 1px rgba(170,210,255,.4) inset,0 10px 40px -8px rgba(47,127,214,.55),0 2px 0 rgba(255,255,255,.35) inset;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;white-space:nowrap}
-.btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(190,225,255,.6) inset,0 18px 50px -10px rgba(47,127,214,.75),0 2px 0 rgba(255,255,255,.35) inset}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:17px 30px;border-radius:999px;font:600 16.5px/1 var(--display);font-variation-settings:"wdth" 108;letter-spacing:.01em;color:var(--ink);background:rgba(4,6,11,.3);border:1.5px solid var(--flame);box-shadow:0 0 28px -10px rgba(90,170,240,.6);backdrop-filter:blur(6px);transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s,box-shadow .25s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);background:rgba(90,170,240,.14);box-shadow:0 0 36px -8px rgba(90,170,240,.75)}
+.btn .arr{color:var(--flame)}
 .btn .arr{transition:transform .25s}
 .btn:hover .arr{transform:translateX(4px)}
 .btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;border:1px solid var(--line-2);font:600 14px/1 var(--display);color:var(--ink);background:rgba(255,255,255,.03);backdrop-filter:blur(8px);transition:border-color .2s,background .2s}
@@ -65,15 +68,14 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;o
 .top .reg{margin-left:auto;display:flex;align-items:center;gap:8px;color:var(--dim)}
 .top .reg svg{width:15px;height:15px;color:var(--green)}
 .top .wrap{max-width:none;padding:0 40px}
-.top .btn{margin-left:auto;padding:12px 20px;font-size:14.5px;color:var(--ink);background:rgba(4,6,11,.25);border:1.5px solid var(--flame);box-shadow:none;backdrop-filter:blur(6px)}
-.top .btn:hover{background:rgba(90,170,240,.12);box-shadow:none}
+.top .btn{margin-left:auto;padding:12px 20px;font-size:14.5px;box-shadow:none}
 
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:min(100svh,980px);display:flex;flex-direction:column;isolation:isolate;overflow:hidden;padding-top:76px}
 .hero-bg{position:absolute;inset:0;z-index:-3;overflow:hidden}
 .hero-bg picture,.hero-bg img{width:100%;height:100%}
-.hero-bg img{position:absolute;top:0;left:14%;width:126%;max-width:none;height:100%;object-fit:cover;object-position:50% 38%;transform-origin:47% 55%;animation:drift 28s ease-in-out infinite alternate}
-@keyframes drift{from{transform:scale(1.04)}to{transform:scale(1.12) translateY(-1.2%)}}
+.hero-bg img{position:absolute;top:0;right:0;left:auto;height:100%;width:auto;max-width:none;--tx:16%;transform:translateX(var(--tx));transform-origin:50% 60%;animation:drift 28s ease-in-out infinite alternate;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+@keyframes drift{from{transform:translateX(var(--tx)) scale(1)}to{transform:translateX(var(--tx)) scale(1.04) translateY(-1%)}}
 .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
   linear-gradient(90deg,var(--void) 0%,rgba(4,6,11,.9) 18%,rgba(4,6,11,.55) 44%,rgba(4,6,11,.05) 62%,rgba(4,6,11,.1) 82%,rgba(4,6,11,.55) 100%),
   linear-gradient(180deg,rgba(4,6,11,.55) 0%,rgba(4,6,11,0) 22%,rgba(4,6,11,0) 55%,rgba(4,6,11,.88) 86%,var(--void) 100%)}
@@ -156,6 +158,7 @@ h2.h{margin-top:20px;font-weight:700;font-variation-settings:"wdth" 110;font-siz
 .book li i{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(90,170,240,.1);color:var(--flame);font:500 13px var(--mono);font-style:normal}
 .book li b{display:block;font-weight:600;font-size:16.5px}
 .book li span{color:var(--dim);font-size:15px}
+#book{scroll-margin-top:40px}
 .cal-alt{text-align:right;max-width:var(--wrap);margin:14px auto 0;padding:0 32px;color:var(--faint);font-size:11px}
 .cal-alt button{color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;font:inherit;letter-spacing:inherit;text-transform:inherit}
 .cal-card{position:relative;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 60px 140px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.08);min-height:700px}
@@ -175,6 +178,10 @@ h2.h{margin-top:20px;font-weight:700;font-variation-settings:"wdth" 110;font-siz
 .story.wide .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(1.05);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
 .story.wide:hover .img img{transform:scale(1.1)}
 .story.wide .img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--panel) 0%,rgba(11,17,29,.2) 40%,rgba(11,17,29,0))}
+.story.wide.flip{grid-template-columns:.9fr 1.1fr}
+.story.wide.flip .img img{object-position:50% 22%}
+.story.wide.flip .img::after{background:linear-gradient(270deg,var(--panel) 0%,rgba(11,17,29,.35) 40%,rgba(11,17,29,.1)),linear-gradient(0deg,rgba(11,17,29,.7),transparent 35%),linear-gradient(180deg,rgba(11,17,29,.75),transparent 28%)}
+.story .credit{position:absolute;left:16px;bottom:12px;z-index:1;font-size:9px;letter-spacing:.06em;text-transform:none;color:rgba(195,202,216,.55)}
 .s-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px}
 .s-logo{height:var(--h,30px);width:auto;filter:brightness(0) invert(1)}
 .s-word{font-weight:700;font-variation-settings:"wdth" 125;letter-spacing:.24em;font-size:19px;color:#fff}
@@ -307,7 +314,7 @@ footer .legal strong{color:var(--dim)}
 /* mobile book bar */
 .mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:60;display:none;transform:translateY(140%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .mbar.show{transform:none}
-.mbar .btn{width:100%}
+.mbar .btn{width:100%;background:rgba(4,6,11,.88);backdrop-filter:blur(10px)}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
@@ -320,7 +327,7 @@ footer .legal strong{color:var(--dim)}
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
   .hero-main{padding-top:56px}
-  .hero-bg img{left:34%;width:110%;object-position:50% 40%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+  .hero-bg img{--tx:30%}
   .hero::before{background:linear-gradient(180deg,rgba(4,6,11,.6) 0%,rgba(4,6,11,.35) 30%,rgba(4,6,11,.75) 70%,var(--void) 100%)}
   .wall .wrap{grid-template-columns:minmax(0,1fr);gap:18px}
   .stats .wrap{grid-template-columns:repeat(3,1fr)}
@@ -339,7 +346,7 @@ footer .legal strong{color:var(--dim)}
   .top .btn{margin-left:auto;padding:11px 16px;font-size:13.5px}
   .logo-mark{width:28px;height:28px}.logo-name{font-size:19px}.logo-sub{font-size:8.5px}
   .hero{padding-top:64px;min-height:0}
-  .hero-bg img{left:46%;width:100%;object-position:50% 40%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
+  .hero-bg img{--tx:36%}
   .vsl-cap{gap:16px}.vsl-cap>span:last-child{flex-shrink:0}
   .hero-main{padding-top:36px;padding-bottom:34px}
   .hero h1{font-size:clamp(38px,11vw,52px)}
@@ -360,6 +367,9 @@ footer .legal strong{color:var(--dim)}
   .story{padding:26px}
   .story.wide{grid-template-columns:minmax(0,1fr)}
   .story.wide .img{height:260px;order:-1}
+  .story.wide.flip{grid-template-columns:minmax(0,1fr)}
+  .story.wide.flip .img{height:340px}
+  .story.wide.flip .img::after{background:linear-gradient(0deg,var(--panel) 0%,rgba(11,17,29,0) 55%)}
   .story.wide .img::after{background:linear-gradient(0deg,var(--panel) 0%,rgba(11,17,29,0) 60%)}
   .story.wide .txt{padding:26px}
   .s-facts{grid-template-columns:repeat(2,1fr)}
@@ -378,6 +388,7 @@ footer .legal strong{color:var(--dim)}
   .mbar{display:block}
   .top .btn .lg{display:none}
   .btn{white-space:normal;text-align:center;padding:17px 22px;font-size:15.5px}
+  .hero .acts .btn{padding:17px 16px;font-size:15px;gap:10px}
   .logo-sub{letter-spacing:.14em}
   footer .flinks a{margin:0 18px 0 0}
 }
@@ -497,11 +508,11 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
       <div class="cal-mount" id="calInline" style="min-width:300px;"></div>
       <div class="cal-fallback" id="calFallback">
         <p>The calendar could not load in this browser.</p>
-        <button class="btn" data-book>Book the consultation</button>
+        <button class="btn" data-book-popup>Book the consultation</button>
       </div>
     </div>
   </div>
-  <p class="cal-alt mono"><span>Calendar not loading?</span> <button type="button" data-book>Open it in a new window</button></p>
+  <p class="cal-alt mono"><span>Calendar not loading?</span> <button type="button" data-book-popup>Open it in a new window</button></p>
 </section>
 
 <section class="stories-sec" aria-labelledby="h-stories" style="padding-top:40px">
@@ -539,14 +550,16 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
   <p>He came in on the August 2025 round at a $6.8 billion valuation. In September 2026 Cohere was reported to be in talks to raise at about $20 billion. Not closed, not a return, and nobody should expect it to repeat.</p>
   <div class="s-facts"><div><span class="mono">Entered</span>Aug 2025 at $6.8B</div><div><span class="mono">Reported talks</span>Sep 2026 at ~$20B</div><div><span class="mono">Status</span>Private</div></div>
 </article>
-<article class="story wide rv" style="--glow:rgba(143,193,255,.12);display:block;padding:44px;min-height:0">
-  <div class="s-top"><span class="s-word">PROMETHEUS</span><span class="s-pill mono">Held · Private</span></div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px 48px;align-items:end">
-    <div><div class="s-big">$41B</div><div class="s-cap mono">Valuation at entry · Jun 2026</div></div>
-    <div><h3>He signed the same paper JPMorgan and BlackRock signed.</h3>
-    <p>Jeff Bezos’s new AI company raised $12 billion at a $41 billion valuation in June 2026, while OpenAI and Anthropic were already valued near $900 billion. Same terms, same valuation, as the banks in the round. We buy the block; you take a piece of ours.</p></div>
+<article class="story wide flip rv" style="--glow:rgba(143,193,255,.12)">
+  <div class="img"><picture><source srcset="assets/img/bezos.webp" type="image/webp"><img src="assets/img/bezos.jpg" alt="Jeff Bezos speaking on stage" loading="lazy" width="1100" height="1278"></picture><span class="credit mono">Jeff Bezos. U.S. Air Force photo, public domain. No endorsement implied.</span></div>
+  <div class="txt">
+    <div class="s-top"><span class="s-word">PROMETHEUS</span><span class="s-pill mono">Held · Private</span></div>
+    <div class="s-big">$41B</div>
+    <div class="s-cap mono">Valuation at entry · Jun 2026</div>
+    <h3>He signed the same paper JPMorgan and BlackRock signed.</h3>
+    <p>Jeff Bezos’s new AI company raised $12 billion at a $41 billion valuation in June 2026, while OpenAI and Anthropic were already valued near $900 billion. Same terms, same valuation, as the banks in the round. We buy the block; you take a piece of ours.</p>
+    <div class="s-facts"><div><span class="mono">Entry valuation</span>$41 billion</div><div><span class="mono">Alongside</span>JPMorgan, BlackRock, Goldman Sachs</div><div><span class="mono">Status</span>Private</div></div>
   </div>
-  <div class="s-facts"><div><span class="mono">Entry valuation</span>$41 billion</div><div><span class="mono">Alongside</span>JPMorgan, BlackRock, Goldman Sachs</div><div><span class="mono">Status</span>Private</div></div>
 </article></div>
     <p class="fine rv">*Individual examples, not a representative sample of all positions. Unless marked listed, figures are unrealized paper marks, not money paid to anyone and not a guarantee. Some investors have lost money. <a href="/disclosures/">Full disclosures</a>.</p>
     <div class="cta-row rv"><button class="btn" data-book>Book your 15-minute consultation <span class="arr">→</span></button></div>
@@ -760,18 +773,25 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
       }
     })();
 
+    /* [2026-10-14] Sam: every Book button scrolls to the calendar already on the page; the popup is only the fallback */
+    function popup() {
+      if (window.Calendly && window.Calendly.initPopupWidget) {
+        try { window.Calendly.initPopupWidget({ url: CALENDLY_URL }); return; } catch (err) {}
+      }
+      window.open(CALENDLY_URL, "_blank");   /* widget.js blocked -> new tab */
+    }
     document.querySelectorAll("[data-book]").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        if (window.Calendly && window.Calendly.initPopupWidget) {
-          try { window.Calendly.initPopupWidget({ url: CALENDLY_URL }); return; } catch (err) {}
-        }
-        window.open(CALENDLY_URL, "_blank");   /* widget.js blocked -> new tab */
+        var book = document.getElementById("book"), cal = document.getElementById("calInline");
+        if (book && cal && cal.style.display !== "none") { book.scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+        popup();
       });
     });
+    document.querySelectorAll("[data-book-popup]").forEach(function (btn) { btn.addEventListener("click", popup); });
   })();
 
   /* [2026-10-14] VSL player: autoplays muted when in view, click turns sound on from the start.
-     No seeking, no duration shown, and a progress bar that runs fast early and slows later. */
+     No seeking, no duration shown, and a progress bar that runs fast early and slows later (x^0.3 on a 4:29 video: ~50% at 0:30, ~72% at 1:30). */
   (function () {
     var slot = document.getElementById("vsl");
     if (!slot) return;
@@ -790,7 +810,7 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
     function prog() {
       var d = v.duration; if (!d || !isFinite(d)) return;
       var x = Math.min(1, v.currentTime / d);
-      fill.style.transform = "scaleX(" + (1 - Math.pow(1 - x, 2.6)).toFixed(4) + ")";
+      fill.style.transform = "scaleX(" + Math.pow(x, 0.3).toFixed(4) + ")";
     }
     v.addEventListener("timeupdate", function () { if (!v.seeking && v.currentTime > maxT) maxT = v.currentTime; prog(); });
     v.addEventListener("seeking", function () { if (v.currentTime > maxT + 0.6) v.currentTime = maxT; });
