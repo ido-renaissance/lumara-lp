@@ -77,8 +77,7 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 /* logo wall */
 .wall{position:relative;border-bottom:1px solid var(--line)}
 .wall .wrap{padding-top:8px;padding-bottom:34px;text-align:center}
-.wall .lab{font-size:16px;color:var(--dim)}
-.marquee{margin-top:24px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee{margin-top:0;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .marquee .track{display:flex;gap:56px;width:max-content;animation:marq 36s linear infinite}
 .logos{display:flex;align-items:center;gap:56px}
 @keyframes marq{to{transform:translateX(calc(-50% - 28px))}}
@@ -120,7 +119,6 @@ h2.h{margin-top:12px;font:600 clamp(32px,3.6vw,48px)/1.12 var(--serif);letter-sp
 .vsound svg{width:30px;height:30px;flex-shrink:0;color:var(--blue-ink)}
 .vsound b{display:block;font-size:17px;font-weight:600;margin-top:2px}
 .vsl.muted-auto .vsound{display:flex}
-.vsl-cap{margin-top:14px;text-align:center;color:var(--dim);font-size:15.5px}
 
 /* booking */
 .book .grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
@@ -372,11 +370,11 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
     <div>
       <p class="kicker">Pre-IPO access for accredited investors, from $25,000</p>
       <h1 id="h1">Get into companies like OpenAI and Anthropic <span class="accent">before they go public.</span></h1>
-      <p class="lede" id="matchLine">The biggest gains in companies like these happen before they go public. We invest early, alongside the big firms, and let you in from $25,000. Same shares, same price.</p>
+      <p class="lede" id="matchLine">We invest early, alongside the big firms, and let you in from $25,000. Same shares, same price.</p>
       <div class="acts">
         <button class="btn" data-book>Book your 15-minute consultation <span class="arr">→</span></button>
       </div>
-      <p class="facts">Free consultation. No commitment. Our own capital goes in first.</p>
+      <p class="facts">Free consultation. No commitment.</p>
       <p class="facts" style="margin-top:6px"><span class="avail">Available for <strong>6 new investors</strong> this month.</span></p>
     </div>
   </div>
@@ -384,7 +382,6 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
 
 <div class="wall">
   <div class="wrap">
-    <p class="lab">Our investors got into companies you already know</p>
     <div class="marquee" aria-label="Companies our investors got into">
       <div class="track">
         <div class="logos"><img class="" src="assets/logos/spacex.svg" alt="SpaceX" style="--h:22.9px" decoding="async"><img class="" src="assets/logos/openai.svg" alt="OpenAI" style="--h:32.8px" decoding="async"><img class="" src="assets/logos/anthropic.svg" alt="Anthropic" style="--h:20.9px" decoding="async"><img class="" src="assets/logos/thinkingmachines.png" alt="Thinking Machines" style="--h:39.5px" decoding="async"><img class="" src="assets/logos/stripe.svg" alt="Stripe" style="--h:35.6px" decoding="async"><img class="" src="assets/logos/neuralink.svg" alt="Neuralink" style="--h:43.0px" decoding="async"><img class="" src="assets/logos/openevidence.svg" alt="OpenEvidence" style="--h:25.8px" decoding="async"><img class="" src="assets/logos/anduril.svg" alt="Anduril" style="--h:26.0px" decoding="async"><img class="" src="assets/logos/databricks.svg" alt="Databricks" style="--h:39.4px" decoding="async"><img class="" src="assets/logos/kalshi.svg" alt="Kalshi" style="--h:28.9px" decoding="async"></div>
@@ -418,7 +415,6 @@ src="https://www.facebook.com/tr?id=1081100391134808&ev=PageView&noscript=1"/></
         </video>
         <button type="button" class="play" aria-label="Play video"></button>
       </div>
-      <p class="vsl-cap">A short video on how a $25,000 position in a private round works.</p>
     </div>
   </div>
 </section>
